@@ -10,6 +10,8 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import "@fontsource-variable/jost";
+import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,7 +23,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <main className="main-grid">
+          <NavigationBar />
+          {children}
+          <Footer />
+        </main>
+
         <ScrollRestoration />
         <Scripts />
       </body>

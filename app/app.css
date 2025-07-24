@@ -38,4 +38,26 @@
     line-height: 26px;
     letter-spacing: 5px;
   }
+
+  .main-grid {
+    display: grid;
+    --gutter: 1rem;
+
+    @media screen and (min-width: 50rem) {
+      --gutter: 2rem;
+    }
+
+    grid-template-columns:
+      [full-start]
+      var(--gutter)
+      [main-start]
+      repeat(12, 1fr)
+      [main-end]
+      var(--gutter)
+      [full-end];
+  }
+
+  .main-grid > * {
+    grid-column: main;
+  }
 }

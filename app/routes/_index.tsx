@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/_index";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,7 +9,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main>
+    <>
       <header className="px-8 py-6">
         <h1>Award-winning custom designs and digital branding solutions</h1>
 
@@ -22,22 +22,24 @@ export default function Home() {
         <button>Learn more</button>
       </header>
 
-      <div className="p-4">
-        <h2>Web Design</h2>
-        <a href="#">View Projects</a>
+      <div className="grid grid-cols-subgrid gap-4">
+        <div className="col-span-full md:col-span-6 md:row-span-2 p-4">
+          <h2>Web Design</h2>
+          <a href="#">View Projects</a>
+        </div>
+
+        <div className="col-span-full md:col-span-6 p-4">
+          <h2>App Design</h2>
+          <a href="#">View Projects</a>
+        </div>
+
+        <div className="col-span-fullmd:col-span-6 p-4">
+          <h2>Graphic Design</h2>
+          <a href="#">View Projects</a>
+        </div>
       </div>
 
-      <div className="p-4">
-        <h2>App Design</h2>
-        <a href="#">View Projects</a>
-      </div>
-
-      <div className="p-4">
-        <h2>Graphic Design</h2>
-        <a href="#">View Projects</a>
-      </div>
-
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col md:flex-row items-center gap-4">
         <div className="p-4">
           <h2>Passionate</h2>
           <p>
@@ -63,6 +65,6 @@ export default function Home() {
           best experience a company can provide.
         </div>
       </div>
-    </main>
+    </>
   );
 }
