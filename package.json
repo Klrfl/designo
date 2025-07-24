@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@fontsource-variable/jost": "^5.2.6",
     "@react-router/fs-routes": "^7.7.0",
     "@react-router/node": "^7.7.0",
     "@react-router/serve": "^7.7.0",
