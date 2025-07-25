@@ -30,8 +30,8 @@ export default function ServiceCard(props: Props) {
       />
 
       <div className="z-1 text-white uppercase">
-        <h2>{props.title}</h2>
-        <a href={props.link?.url ?? "#"}>
+        <h2 className="heading-2">{props.title}</h2>
+        <a className="tracking-[5px]" href={props.link?.url ?? "#"}>
           {props.link?.label ?? "View Projects"}
         </a>
       </div>

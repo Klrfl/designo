@@ -27,7 +27,9 @@ export default function Home() {
         <img src={HeaderBg} className="absolute right-0 top-0 z-0" alt="TODO" />
 
         <div className="z-1 flex flex-col gap-8 items-center lg:items-start max-w-[60ch] text-center lg:text-left">
-          <h1>Award-winning custom designs and digital branding solutions</h1>
+          <h1 className="heading-1">
+            Award-winning custom designs and digital branding solutions
+          </h1>
 
           <p>
             With over 10 years in the industry, we are experienced in creating
