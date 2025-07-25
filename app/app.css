@@ -45,6 +45,8 @@
 
   .main-grid {
     display: grid;
+    row-gap: calc(var(--spacing) * 8);
+
     --gutter: minmax(1rem, 1fr);
 
     @media screen and (min-width: 50rem) {
