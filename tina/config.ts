@@ -59,9 +59,36 @@ export default defineConfig({
             required: false,
           },
           {
+            type: "object",
+            name: "projects",
+            label: "Projects",
+            description: "list of projects to show",
+            list: true,
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "title",
+                isTitle: true,
+                required: true,
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "description",
+              },
+              {
+                type: "image",
+                name: "image",
+                label: "Image",
+              },
+            ],
+          },
+          {
             type: "rich-text",
             name: "body",
-            label: "Body",
+            label: "Header",
+            description: "text for header",
             isBody: true,
           },
         ],

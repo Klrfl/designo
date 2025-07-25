@@ -3,8 +3,6 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Route } from "./+types/$service";
 import { data } from "react-router";
 
-import Express from "~/assets/web-design/desktop/image-express.jpg";
-
 export async function loader({ params }: Route.LoaderArgs) {
   try {
     const connection = await client.queries.serviceConnection();
@@ -40,14 +38,6 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   const { otherPages, post } = loaderData;
-  const projects = [
-    {
-      id: 1,
-      image: Express,
-      title: "Express",
-      description: "A multi-carrier shipping website for ecommerce businesses",
-    },
-  ];
 
   return (
     <>
@@ -68,20 +58,35 @@ export default function Page({ loaderData }: Route.ComponentProps) {
       <h2 className="sr-only">Our Projects</h2>
 
       <ul className="grid gap-4 lg:grid-cols-3">
-        {projects.map((p) => (
-          <li key={p.id} className="bg-primary-100  rounded-lg overflow-hidden">
-            <figure>
-              <img src={p.image} className="w-full" width="200" alt="" />
-            </figure>
-
-            <figcaption className="text-center py-8 px-12">
-              <h3 className="heading-3 uppercase text-primary mb-4">
-                {p.title}
-              </h3>
-              <p className="text-base-700">{p.description}</p>
-            </figcaption>
+        {!post.projects && (
+          <li className="text-gray text-center col-span-full">
+            No projects yet
           </li>
-        ))}
+        )}
+
+        {post.projects?.map((p) => {
+          if (!p) return <h1>no post</h1>;
+
+          return (
+            <li
+              key={p.title}
+              className="bg-primary-100  rounded-lg overflow-hidden"
+            >
+              {p.image && (
+                <figure>
+                  <img src={p.image} className="w-full" width="200" alt="" />
+                </figure>
+              )}
+
+              <figcaption className="text-center py-8 px-12">
+                <h3 className="heading-3 uppercase text-primary mb-4">
+                  {p.title}
+                </h3>
+                <p className="text-base-700">{p.description}</p>
+              </figcaption>
+            </li>
+          );
+        })}
       </ul>
 
       <ul className="flex gap-4">
