@@ -23,7 +23,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <header className="flex flex-col justify-between lg:flex-row items-center lg:items-start px-6 md:px-12 lg:px-24 py-16 rounded-lg bg-primary text-white relative overflow-hidden gap-8">
+      <header className="flex flex-col justify-between lg:flex-row items-center lg:items-start px-6 md:px-12 lg:px-24 py-16 rounded-2xl bg-primary text-white relative overflow-hidden gap-8">
         <img src={HeaderBg} className="absolute right-0 top-0 z-0" alt="TODO" />
 
         <div className="z-1 flex flex-col gap-8 items-center lg:items-start max-w-[60ch] text-center lg:text-left">

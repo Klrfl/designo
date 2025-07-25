@@ -4,7 +4,7 @@ import LogoFacebook from "~/assets/shared/desktop/icon-facebook.svg";
 export default function Footer() {
   return (
     <>
-      <div className="bg-primary text-white px-16 py-12 rounded-xl translate-y-1/6 col-[main] flex flex-col items-center justify-between lg:flex-row">
+      <div className="bg-primary text-white px-16 py-12 rounded-2xl translate-y-1/6 col-[main] flex flex-col items-center justify-between lg:flex-row">
         <div className="text-center lg:text-left max-w-prose">
           <h2 className="heading-2 text-balance">
             Let’s talk about your project
