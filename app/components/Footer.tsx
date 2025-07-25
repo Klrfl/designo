@@ -1,24 +1,30 @@
 import DesignoLight from "~/assets/shared/desktop/logo-light.png";
 import LogoFacebook from "~/assets/shared/desktop/icon-facebook.svg";
 
-export default function Footer() {
+interface Props {
+  displayCta?: boolean;
+}
+
+export default function Footer({ displayCta = true }: Props) {
   return (
     <>
-      <div className="bg-primary text-white px-16 py-12 rounded-2xl -my-8 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row">
-        <div className="text-center lg:text-left max-w-prose">
-          <h2 className="heading-2 text-balance">
-            Let’s talk about your project
-          </h2>
-          <p>
-            Ready to take it to the next level? Contact us today and find out
-            how our expertise can help your business grow.
-          </p>
-        </div>
+      {displayCta && (
+        <div className="bg-primary text-white px-16 py-12 rounded-2xl -my-8 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row">
+          <div className="text-center lg:text-left max-w-prose">
+            <h2 className="heading-2 text-balance">
+              Let’s talk about your project
+            </h2>
+            <p>
+              Ready to take it to the next level? Contact us today and find out
+              how our expertise can help your business grow.
+            </p>
+          </div>
 
-        <button className="bg-white px-6 py-4 rounded-lg uppercase tracking-[1px] text-black">
-          Get in touch
-        </button>
-      </div>
+          <button className="bg-white px-6 py-4 rounded-lg uppercase tracking-[1px] text-black">
+            Get in touch
+          </button>
+        </div>
+      )}
 
       <footer className="bg-base text-white/50 text-center lg:text-left pt-32 pb-24 grid grid-cols-subgrid col-[full] gap-y-8">
         <div className="col-[main] flex flex-col lg:flex-row gap-4 items-center justify-between">

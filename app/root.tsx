@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -14,6 +15,7 @@ import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
   return (
     <html lang="en">
       <head>
@@ -26,7 +28,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <main className="main-grid">
           <NavigationBar />
           {children}
-          <Footer />
+          <Footer displayCta={location.pathname !== "/contact"} />
         </main>
 
         <ScrollRestoration />
