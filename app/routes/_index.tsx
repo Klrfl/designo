@@ -1,10 +1,17 @@
 import type { Route } from "./+types/_index";
 import HeaderBg from "~/assets/home/desktop/bg-pattern-hero-home.svg";
 import Phone from "~/assets/home/desktop/phone.png";
+
 import WebDesignBgLarge from "~/assets/home/desktop/image-web-design-large.jpg";
 import AppDesignBg from "~/assets/home/desktop/image-app-design.jpg";
 import GraphicDesignBg from "~/assets/home/desktop/image-graphic-design.jpg";
+
+import Passionate from "~/assets/home/desktop/illustration-passionate.svg";
+import Resourceful from "~/assets/home/desktop/illustration-resourceful.svg";
+import Friendly from "~/assets/home/desktop/illustration-friendly.svg";
+
 import ServiceCard from "~/components/home/ServiceCard";
+import WhyUsCard from "~/components/home/WhyUsCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -48,32 +55,31 @@ export default function Home() {
         <ServiceCard image={GraphicDesignBg} title="Graphic Design" />
       </section>
 
-      <div className="flex flex-col md:flex-row items-center gap-4">
-        <div className="p-4">
-          <h2>Passionate</h2>
+      <section className="flex flex-col md:flex-row items-center gap-4">
+        <WhyUsCard title="Passionate" image={Passionate}>
           <p>
             Each project starts with an in-depth brand research to ensure we
             only create products that serve a purpose. We merge art, design, and
             technology into exciting new solutions.
           </p>
-        </div>
+        </WhyUsCard>
 
-        <div className="p-4">
-          <h2>Resourceful</h2>
+        <WhyUsCard title="Resourceful" image={Resourceful}>
           <p>
             Everything that we do has a strategic purpose. We use an agile
             approach in all of our projects and value customer collaboration. It
             guarantees superior results that fulfill our clients’ needs.
           </p>
-        </div>
+        </WhyUsCard>
 
-        <div className="p-4">
-          <h2> Friendly </h2>
-          We are a group of enthusiastic folks who know how to put people first.
-          Our success depends on our customers, and we strive to give them the
-          best experience a company can provide.
-        </div>
-      </div>
+        <WhyUsCard title="Friendly" image={Friendly}>
+          <p>
+            We are a group of enthusiastic folks who know how to put people
+            first. Our success depends on our customers, and we strive to give
+            them the best experience a company can provide.
+          </p>
+        </WhyUsCard>
+      </section>
     </>
   );
 }

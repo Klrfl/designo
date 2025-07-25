@@ -8,6 +8,7 @@
 
 @theme {
   --text-4xl: 2.5rem;
+  --text-base: hsl(264 5 20);
   --color-primary: hsl(10 72 66);
 }
 
@@ -19,6 +20,7 @@
 
   p {
     line-height: calc(var(--spacing) * 7);
+    color: var(--text-base);
   }
 
   h1 {
