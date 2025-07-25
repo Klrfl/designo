@@ -42,7 +42,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
-      <header className="bg-primary text-white  rounded-2xl">
+      <header className="bg-primary text-white text-center rounded-2xl">
         <div className="max-w-prose mx-auto py-16">
           <TinaMarkdown
             components={{
@@ -75,7 +75,13 @@ export default function Page({ loaderData }: Route.ComponentProps) {
             >
               {p.image && (
                 <figure>
-                  <img src={p.image} className="w-full" width="200" alt="" />
+                  <img
+                    src={p.image}
+                    className="w-full"
+                    width="450"
+                    height="800"
+                    alt=""
+                  />
                 </figure>
               )}
 
