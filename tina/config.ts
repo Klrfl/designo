@@ -59,6 +59,12 @@ export default defineConfig({
             required: false,
           },
           {
+            type: "image",
+            name: "image",
+            label: "Image",
+            description: "This image will be displayed in link card",
+          },
+          {
             type: "object",
             name: "projects",
             label: "Projects",

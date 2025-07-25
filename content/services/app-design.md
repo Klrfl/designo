@@ -1,6 +1,7 @@
 ---
 title: App design
 order: 2
+image: /assets/image-app-design.jpg
 projects:
   - title: Airfilter
     description: Solving the problem of poor indoor air quality by filtering the air
@@ -11,4 +12,4 @@ projects:
 
 Our mobile designs bring intuitive digital solutions
 
- to your customers right at their fingertips.
+to your customers right at their fingertips.

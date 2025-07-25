@@ -2,16 +2,13 @@ import type { Route } from "./+types/_index";
 import HeaderBg from "~/assets/home/desktop/bg-pattern-hero-home.svg";
 import Phone from "~/assets/home/desktop/phone.png";
 
-import WebDesignBgLarge from "~/assets/home/desktop/image-web-design-large.jpg";
-import AppDesignBg from "~/assets/home/desktop/image-app-design.jpg";
-import GraphicDesignBg from "~/assets/home/desktop/image-graphic-design.jpg";
-
 import Passionate from "~/assets/home/desktop/illustration-passionate.svg";
 import Resourceful from "~/assets/home/desktop/illustration-resourceful.svg";
 import Friendly from "~/assets/home/desktop/illustration-friendly.svg";
 
 import ServiceCard from "~/components/home/ServiceCard";
 import WhyUsCard from "~/components/home/WhyUsCard";
+import client from "$/tina/__generated__/client";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,7 +17,18 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export async function loader() {
+  const results = await client.queries.serviceConnection();
+  const services = results.data.serviceConnection.edges
+    ?.map((e) => e?.node)
+    .sort((a, b) => a!.order - b!.order);
+
+  return { services };
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
+  const { services } = loaderData;
+
   return (
     <>
       <header className="flex flex-col justify-between lg:flex-row items-center lg:items-start px-6 md:px-12 lg:px-24 py-16 rounded-2xl bg-primary text-white relative overflow-hidden gap-8">
@@ -48,13 +56,13 @@ export default function Home() {
       </header>
 
       <section className="grid grid-cols-subgrid gap-4">
-        <ServiceCard
-          image={WebDesignBgLarge}
-          title="Web Design"
-          className="md:row-span-2"
-        />
-        <ServiceCard image={AppDesignBg} title="App Design" />
-        <ServiceCard image={GraphicDesignBg} title="Graphic Design" />
+        {services?.map((s, i) => (
+          <ServiceCard
+            image={s?.image ?? ""}
+            title={s?.title ?? ""}
+            className={i === 0 ? `md:row-span-2` : ""}
+          />
+        ))}
       </section>
 
       <section className="flex flex-col md:flex-row items-center gap-4">

@@ -1,6 +1,7 @@
 ---
 title: Web Design
 order: 1
+image: /assets/image-web-design-large.jpg
 ---
 
 ## Web design services!
