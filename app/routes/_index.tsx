@@ -1,4 +1,6 @@
 import type { Route } from "./+types/_index";
+import HeaderBg from "~/assets/home/desktop/bg-pattern-hero-home.svg";
+import Phone from "~/assets/home/desktop/phone.png";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,16 +12,26 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <header className="px-8 py-6">
-        <h1>Award-winning custom designs and digital branding solutions</h1>
+      <header className="flex flex-col justify-between lg:flex-row items-center lg:items-start px-6 md:px-12 lg:px-24 py-16 rounded-lg bg-primary text-white relative overflow-hidden gap-8">
+        <img src={HeaderBg} className="absolute right-0 top-0 z-0" alt="TODO" />
 
-        <p>
-          With over 10 years in the industry, we are experienced in creating
-          fully responsive websites, app design, and engaging brand experiences.
-          Find out more about our services.
-        </p>
+        <div className="z-1 flex flex-col gap-8 items-center lg:items-start max-w-[60ch] text-center lg:text-left">
+          <h1>Award-winning custom designs and digital branding solutions</h1>
 
-        <button>Learn more</button>
+          <p>
+            With over 10 years in the industry, we are experienced in creating
+            fully responsive websites, app design, and engaging brand
+            experiences. Find out more about our services.
+          </p>
+
+          <button className="bg-white px-6 py-4 rounded-lg uppercase tracking-[1px] text-black">
+            Learn more
+          </button>
+        </div>
+
+        <figure className="max-w-70 lg:max-w-full h-75 lg:h-120 ">
+          <img src={Phone} className="w-full" width="500" alt="" />
+        </figure>
       </header>
 
       <div className="grid grid-cols-subgrid gap-4">

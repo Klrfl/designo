@@ -8,6 +8,7 @@
 
 @theme {
   --text-4xl: 2.5rem;
+  --color-primary: hsl(10 72 66);
 }
 
 @layer base {
@@ -41,17 +42,17 @@
 
   .main-grid {
     display: grid;
-    --gutter: 1rem;
+    --gutter: minmax(1rem, 1fr);
 
     @media screen and (min-width: 50rem) {
-      --gutter: 2rem;
+      --gutter: minmax(2rem, 1fr);
     }
 
     grid-template-columns:
       [full-start]
       var(--gutter)
       [main-start]
-      repeat(12, 1fr)
+      repeat(12, minmax(0, 8rem))
       [main-end]
       var(--gutter)
       [full-end];
