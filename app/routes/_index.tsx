@@ -45,9 +45,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             experiences. Find out more about our services.
           </p>
 
-          <button className="bg-white px-6 py-4 rounded-lg uppercase tracking-[1px] text-black">
-            Learn more
-          </button>
+          <button className="btn">Learn more</button>
         </div>
 
         <figure className="max-w-70 lg:max-w-full h-75 lg:h-120 ">
