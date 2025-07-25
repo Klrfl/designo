@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "react-router dev",
+    "dev": "tinacms dev -c \"react-router dev\"",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
@@ -16,11 +16,13 @@
     "isbot": "^5.1.27",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^7.7.0"
+    "react-router": "^7.7.0",
+    "tinacms": "^2.8.1"
   },
   "devDependencies": {
     "@react-router/dev": "^7.7.0",
     "@tailwindcss/vite": "^4.1.4",
+    "@tinacms/cli": "^1.10.1",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
@@ -30,3 +32,4 @@
     "vite-tsconfig-paths": "^5.1.4"
   }
 }
+
