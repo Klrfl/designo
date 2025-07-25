@@ -1,6 +1,10 @@
 import type { Route } from "./+types/_index";
 import HeaderBg from "~/assets/home/desktop/bg-pattern-hero-home.svg";
 import Phone from "~/assets/home/desktop/phone.png";
+import WebDesignBgLarge from "~/assets/home/desktop/image-web-design-large.jpg";
+import AppDesignBg from "~/assets/home/desktop/image-app-design.jpg";
+import GraphicDesignBg from "~/assets/home/desktop/image-graphic-design.jpg";
+import ServiceCard from "~/components/home/ServiceCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -34,22 +38,15 @@ export default function Home() {
         </figure>
       </header>
 
-      <div className="grid grid-cols-subgrid gap-4">
-        <div className="col-span-full md:col-span-6 md:row-span-2 p-4">
-          <h2>Web Design</h2>
-          <a href="#">View Projects</a>
-        </div>
-
-        <div className="col-span-full md:col-span-6 p-4">
-          <h2>App Design</h2>
-          <a href="#">View Projects</a>
-        </div>
-
-        <div className="col-span-fullmd:col-span-6 p-4">
-          <h2>Graphic Design</h2>
-          <a href="#">View Projects</a>
-        </div>
-      </div>
+      <section className="grid grid-cols-subgrid gap-4">
+        <ServiceCard
+          image={WebDesignBgLarge}
+          title="Web Design"
+          className="md:row-span-2"
+        />
+        <ServiceCard image={AppDesignBg} title="App Design" />
+        <ServiceCard image={GraphicDesignBg} title="Graphic Design" />
+      </section>
 
       <div className="flex flex-col md:flex-row items-center gap-4">
         <div className="p-4">
