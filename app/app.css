@@ -10,6 +10,7 @@
   --text-4xl: 2.5rem;
   --text-base: hsl(264 5 20);
   --color-primary: hsl(10 72 66);
+  --color-secondary: hsl(264 4 11);
 }
 
 @utility heading-1 {
