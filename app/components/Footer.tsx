@@ -20,7 +20,7 @@ export default function Footer() {
         </button>
       </div>
 
-      <footer className="bg-secondary text-white/50 text-center lg:text-left pt-32 pb-24 grid grid-cols-subgrid col-[full] gap-y-8">
+      <footer className="bg-base text-white/50 text-center lg:text-left pt-32 pb-24 grid grid-cols-subgrid col-[full] gap-y-8">
         <div className="col-[main] flex flex-col lg:flex-row gap-4 items-center justify-between">
           <img
             src={DesignoLight}

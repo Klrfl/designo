@@ -3,6 +3,8 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Route } from "./+types/$service";
 import { data } from "react-router";
 
+import Express from "~/assets/web-design/desktop/image-express.jpg";
+
 export async function loader({ params }: Route.LoaderArgs) {
   try {
     const connection = await client.queries.serviceConnection();
@@ -38,11 +40,49 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   const { otherPages, post } = loaderData;
+  const projects = [
+    {
+      id: 1,
+      image: Express,
+      title: "Express",
+      description: "A multi-carrier shipping website for ecommerce businesses",
+    },
+  ];
 
   return (
     <>
-      <h1>hai</h1>
-      <TinaMarkdown content={post.body} />
+      <header className="bg-primary text-white  rounded-2xl">
+        <div className="max-w-prose mx-auto py-16">
+          <TinaMarkdown
+            components={{
+              h1: (props) => <h1 className="heading-1">{props.children}</h1>,
+              h2: (props) => (
+                <h2 className="heading-2 mb-6">{props.children}</h2>
+              ),
+            }}
+            content={post.body}
+          />
+        </div>
+      </header>
+
+      <h2 className="sr-only">Our Projects</h2>
+
+      <ul className="grid gap-4 lg:grid-cols-3">
+        {projects.map((p) => (
+          <li key={p.id} className="bg-primary-100  rounded-lg overflow-hidden">
+            <figure>
+              <img src={p.image} className="w-full" width="200" alt="" />
+            </figure>
+
+            <figcaption className="text-center py-8 px-12">
+              <h3 className="heading-3 uppercase text-primary mb-4">
+                {p.title}
+              </h3>
+              <p className="text-base-700">{p.description}</p>
+            </figcaption>
+          </li>
+        ))}
+      </ul>
 
       <ul className="flex gap-4">
         {otherPages

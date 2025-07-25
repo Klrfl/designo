@@ -9,8 +9,23 @@
 @theme {
   --text-4xl: 2.5rem;
   --text-base: hsl(264 5 20);
-  --color-primary: hsl(10 72 66);
-  --color-secondary: hsl(264 4 11);
+
+  --color-peach-500: hsl(10 72 66);
+  --color-peach-300: hsl(11 100 80);
+  --color-black: hsl(270 3 11);
+  --color-white: hsl(0 0 100);
+
+  --color-gray-700: hsl(264 5 20);
+  --color-gray-200: hsl(210 17 95);
+  --color-peach-100: hsl(14 76 97);
+
+  --color-primary: var(--color-peach-500);
+  --color-primary-100: var(--color-peach-100);
+  --color-secondary: var(--color-peach-300);
+
+  --color-base-700: var(--color-gray-700);
+  --color-base-100: var(--color-gray-100);
+  --color-base: var(--color-black);
 }
 
 @utility heading-1 {
