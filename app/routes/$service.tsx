@@ -2,6 +2,7 @@ import client from "$/tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Route } from "./+types/$service";
 import { data } from "react-router";
+import ServiceCard from "../components/home/ServiceCard";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
@@ -89,12 +90,16 @@ export default function Page({ loaderData }: Route.ComponentProps) {
         })}
       </ul>
 
-      <ul className="flex gap-4">
+      <ul className="flex flex-wrap lg:flex-nowrap gap-4">
         {otherPages
           .sort((a, b) => a.order - b.order)
           .map((r) => (
-            <li>
-              <a href={`/${r?._sys.filename}`}>{r?.title}</a>
+            <li className="flex-1">
+              <ServiceCard
+                image={r?.image}
+                link={r?._sys.filename}
+                title={r?.title}
+              />
             </li>
           ))}
       </ul>

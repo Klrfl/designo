@@ -60,6 +60,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <ServiceCard
             image={s?.image ?? ""}
             title={s?.title ?? ""}
+            link={s?._sys.filename}
             className={i === 0 ? `md:row-span-2` : ""}
           />
         ))}
