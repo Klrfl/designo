@@ -1,13 +1,29 @@
 import Logo from "~/assets/shared/desktop/logo-dark.png";
 import Burger from "~/assets/shared/mobile/icon-hamburger.svg";
 import Close from "~/assets/shared/mobile/icon-close.svg";
+import { Link } from "react-router";
 
 export default function NavigationBar() {
+  const links = [
+    {
+      href: "/our-company",
+      label: "Our Company",
+    },
+    {
+      href: "/locations",
+      label: "Locations",
+    },
+    {
+      href: "/contact",
+      label: "Contact",
+    },
+  ];
+
   return (
-    <nav className="flex justify-between items-center px-6 py-4 bg-white shadow-lg relative group">
-      <a href="#">
+    <nav className="flex justify-between items-center px-6 py-4 bg-white relative group">
+      <Link to="/" viewTransition>
         <img src={Logo} className="block" width="200" alt="" />
-      </a>
+      </Link>
 
       <input
         type="checkbox"
@@ -36,33 +52,18 @@ export default function NavigationBar() {
         />
       </label>
 
-      <div className="bg-white max-[48rem]:-translate-y-full max-[48rem]:peer-checked:translate-y-12 transition-transform max-[48rem]:absolute top-0 left-0 right-0 max-[48rem]:shadow-lg">
+      <div className="z-10 bg-white max-[48rem]:-translate-y-full max-[48rem]:peer-checked:translate-y-12 transition-transform max-[48rem]:absolute top-0 left-0 right-0 max-[48rem]:shadow-lg">
         <ul className="flex flex-col text-right md:flex-row gap-2 md:relative peer-checked:translate-y-100">
-          <li>
-            <a
-              className="block hover:bg-black/10 transition-[background-color] px-4 py-3"
-              href="#"
-            >
-              Our Company
-            </a>
-          </li>
-          <li>
-            <a
-              className="block hover:bg-black/10 transition-[background-color] px-4 py-3"
-              href="#"
-            >
-              Locations
-            </a>
-          </li>
-
-          <li>
-            <a
-              className="block hover:bg-black/10 transition-[background-color] px-4 py-3"
-              href="#"
-            >
-              Contact
-            </a>
-          </li>
+          {links.map((l) => (
+            <li>
+              <Link
+                className="block uppercase text-sm hover:underline leading-tight tracking-[2px] transition-[background-color] px-4 py-3"
+                to={l.href}
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
