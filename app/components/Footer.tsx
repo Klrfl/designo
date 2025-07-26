@@ -1,5 +1,6 @@
 import DesignoLight from "~/assets/shared/desktop/logo-light.png";
 import LogoFacebook from "~/assets/shared/desktop/icon-facebook.svg";
+import ThreeCircles from "~/assets/shared/desktop/bg-pattern-three-circles.svg";
 
 interface Props {
   displayCta?: boolean;
@@ -9,8 +10,15 @@ export default function Footer({ displayCta = true }: Props) {
   return (
     <>
       {displayCta && (
-        <div className="bg-primary text-white px-16 py-12 rounded-2xl -mb-20 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row">
-          <div className="text-center lg:text-left max-w-prose">
+        <div className="bg-primary text-white px-24 py-16 rounded-2xl -mb-20 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row relative">
+          <img
+            src={ThreeCircles}
+            className="absolute inset-0 size-full"
+            width="200"
+            alt=""
+          />
+
+          <div className="text-center lg:text-left max-w-[50ch]">
             <h2 className="heading-2 text-balance">
               Let’s talk about your project
             </h2>
