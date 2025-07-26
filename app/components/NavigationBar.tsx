@@ -6,7 +6,7 @@ import { Link } from "react-router";
 export default function NavigationBar() {
   const links = [
     {
-      href: "/our-company",
+      href: "/about",
       label: "Our Company",
     },
     {

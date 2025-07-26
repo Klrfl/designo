@@ -1,19 +1,34 @@
 import Circle from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
-import About from "~/assets/about/desktop/image-about-hero.jpg";
 import type { PropsWithChildren } from "react";
+import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 interface Props extends PropsWithChildren {
   title: string;
   primary?: boolean;
   invert?: boolean;
+  image: string;
+  content: TinaMarkdownContent;
 }
 
 export default function AboutSection({
-  title,
+  image,
+  content,
   primary = false,
   invert = false,
-  children,
 }: Props) {
+  const components = {
+    h2: (props) => (
+      <h2
+        className={[
+          "heading-2 font-medium mb-6",
+          !primary && "text-primary",
+        ].join(" ")}
+      >
+        {props.children}
+      </h2>
+    ),
+  };
+
   return (
     <section
       className={[
@@ -22,7 +37,7 @@ export default function AboutSection({
       ].join(" ")}
     >
       <figure className="aspect-video size-full lg:aspect-auto flex-1">
-        <img src={About} className="size-full object-cover" alt="" />
+        <img src={image} className="size-full object-cover" alt="" />
       </figure>
 
       <figcaption
@@ -37,16 +52,7 @@ export default function AboutSection({
           alt=""
         />
 
-        <h2
-          className={[
-            "heading-2 font-medium mb-6",
-            !primary && "text-primary",
-          ].join(" ")}
-        >
-          {title}
-        </h2>
-
-        {children}
+        <TinaMarkdown components={components} content={content} />
       </figcaption>
     </section>
   );

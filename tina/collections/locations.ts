@@ -7,8 +7,8 @@ export const locationCollection: Collection = {
   fields: [
     {
       type: "string",
-      name: "location",
-      label: "Location",
+      name: "name",
+      label: "Name",
       isTitle: true,
       required: true,
     },
@@ -36,6 +36,12 @@ export const locationCollection: Collection = {
     },
     {
       type: "string",
+      name: "office",
+      label: "Office",
+      required: false,
+    },
+    {
+      type: "string",
       name: "address",
       label: "Address",
       required: true,
@@ -50,6 +56,22 @@ export const locationCollection: Collection = {
       type: "string",
       name: "email",
       label: "Contact email",
+      required: true,
+    },
+    {
+      type: "number",
+      name: "order",
+      label: "Order",
+      description:
+        "Order of display in page. Lower number means higher priority",
+      required: true,
+    },
+    {
+      type: "boolean",
+      name: "invert",
+      label: "Invert image and content",
+      description:
+        "if inverted, the content will be displayed first (desktop only)",
       required: true,
     },
   ],
