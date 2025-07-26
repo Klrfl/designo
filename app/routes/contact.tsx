@@ -11,17 +11,17 @@ export default function Page() {
     {
       image: Canada,
       caption: "Canada",
-      link: "#",
+      link: "/locations/#canada",
     },
     {
       image: Australia,
       caption: "Australia",
-      link: "#",
+      link: "/locations/#australia",
     },
     {
       image: UnitedKingdom,
       caption: "United Kingdom",
-      link: "#",
+      link: "/locations/#united-kingdom",
     },
   ];
   return (
