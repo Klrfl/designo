@@ -49,6 +49,7 @@
 
 @utility btn {
   @apply block w-fit bg-white px-8 py-4 rounded-lg uppercase tracking-[1px] text-black;
+  cursor: pointer;
 }
 
 @utility btn-dark {
@@ -72,7 +73,7 @@
 
   .main-grid {
     display: grid;
-    row-gap: calc(var(--spacing) * 8);
+    row-gap: calc(var(--spacing) * 16);
 
     --gutter: minmax(1rem, 1fr);
 
