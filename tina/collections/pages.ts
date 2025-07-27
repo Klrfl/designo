@@ -49,6 +49,19 @@ const locationsLinks: Template = {
   ],
 };
 
+const contactForm: Template = {
+  name: "contactForm",
+  label: "Contact form",
+  fields: [
+    {
+      type: "rich-text",
+      name: "text",
+      label: "Text",
+      required: true,
+    },
+  ],
+};
+
 export const pageCollection: Collection = {
   name: "page",
   label: "Pages",
@@ -71,7 +84,7 @@ export const pageCollection: Collection = {
       label: "Body",
       required: false,
       isBody: true,
-      templates: [aboutBlock, locationsLinks],
+      templates: [aboutBlock, locationsLinks, contactForm],
     },
   ],
 };

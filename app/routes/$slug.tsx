@@ -5,6 +5,8 @@ import AboutSection from "~/components/about/AboutSection";
 import { data } from "react-router";
 import { useTina } from "tinacms/dist/react";
 import LocationLinks from "~/components/locations/LocationLinks";
+import ContactForm from "~/components/contact/ContactForm";
+import { richTextComponents } from "~/components/shared/RichTextComponents";
 
 export async function loader({ params }: Route.LoaderArgs) {
   let result;
@@ -29,8 +31,10 @@ export default function Page({ loaderData }: Route.ComponentProps) {
     data: { page },
   } = useTina(loaderData.result);
   const components = {
+    ...richTextComponents,
     aboutSection: AboutSection,
     locationLinks: LocationLinks,
+    contactForm: ContactForm,
   };
 
   return (
