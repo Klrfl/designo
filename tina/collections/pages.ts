@@ -41,6 +41,9 @@ export const pageCollection: Collection = {
   label: "Pages",
   format: "mdx",
   path: "content/pages",
+  ui: {
+    router: (arg) => `/${arg.document._sys.filename}`,
+  },
   fields: [
     {
       type: "string",

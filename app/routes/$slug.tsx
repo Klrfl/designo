@@ -3,6 +3,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Route } from "./+types/$slug";
 import AboutSection from "~/components/about/AboutSection";
 import { data } from "react-router";
+import { useTina } from "tinacms/dist/react";
 
 export async function loader({ params }: Route.LoaderArgs) {
   let result;
@@ -23,13 +24,17 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function Page({ loaderData }: Route.ComponentProps) {
-  const page = loaderData.result.data.page;
+  const {
+    data: { page },
+  } = useTina(loaderData.result);
   const components = {
     aboutSection: AboutSection,
   };
 
   return (
     <>
+      <title>{`${page.title} | Designo`}</title>
+
       <header className="sr-only">
         <h1>{page.title}</h1>
       </header>
