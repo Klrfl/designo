@@ -1,8 +1,9 @@
 import client from "$/tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import type { Route } from "./+types/$service";
+import type { Route } from "./+types/$services.$service";
 import { data } from "react-router";
 import ServiceCard from "../components/home/ServiceCard";
+import { richTextComponents } from "~/components/shared/RichTextComponents";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
@@ -44,15 +45,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
     <>
       <header className="bg-primary text-white text-center rounded-2xl">
         <div className="max-w-prose mx-auto py-16">
-          <TinaMarkdown
-            components={{
-              h1: (props) => <h1 className="heading-1">{props.children}</h1>,
-              h2: (props) => (
-                <h2 className="heading-2 mb-6">{props.children}</h2>
-              ),
-            }}
-            content={post.body}
-          />
+          <TinaMarkdown components={richTextComponents} content={post.body} />
         </div>
       </header>
 
