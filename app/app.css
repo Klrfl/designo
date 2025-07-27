@@ -57,7 +57,7 @@
 }
 
 @utility input {
-  @apply px-4 py-3 text-[15px] text-white border-b-2 border-b-white/50 focus-visible:bg-black/5 focus-visible:border-b-white focus:outline-none transition-colors;
+  @apply block w-full px-4 py-3 text-[15px] text-white border-b-2 border-b-white/50 focus-visible:bg-black/5 focus-visible:border-b-white focus:outline-none transition-colors;
 }
 
 @layer base {
