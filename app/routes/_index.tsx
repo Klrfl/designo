@@ -31,6 +31,9 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
+      <title>Designo</title>
+      <meta name="description" content="Designo official website" />
+
       <header className="flex flex-col justify-between lg:flex-row items-center lg:items-start px-6 md:px-12 lg:px-24 py-16 rounded-2xl bg-primary text-white relative overflow-hidden gap-8">
         <img src={HeaderBg} className="absolute right-0 top-0 z-0" alt="TODO" />
 
@@ -58,7 +61,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <ServiceCard
             image={s?.image ?? ""}
             title={s?.title ?? ""}
-            link={s?._sys.filename}
+            link={`/services/${s?._sys.filename}`}
             className={i === 0 ? `md:row-span-2` : ""}
           />
         ))}

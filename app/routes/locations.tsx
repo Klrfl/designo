@@ -19,6 +19,8 @@ export default function Page({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
+      <title>Locations | Designo</title>
+
       <header className="sr-only">
         <h1>locations</h1>
       </header>
