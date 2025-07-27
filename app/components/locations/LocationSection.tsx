@@ -3,7 +3,7 @@ import TwoCircle from "~/assets/shared/desktop/bg-pattern-two-circles.svg";
 import CanadaMap from "~/assets/locations/desktop/image-map-canada.png";
 
 interface Props {
-  image: string;
+  image?: string;
   name: string;
   office: string;
   address: string;

@@ -4,6 +4,7 @@ import type { Route } from "./+types/$slug";
 import AboutSection from "~/components/about/AboutSection";
 import { data } from "react-router";
 import { useTina } from "tinacms/dist/react";
+import LocationLinks from "~/components/locations/LocationLinks";
 
 export async function loader({ params }: Route.LoaderArgs) {
   let result;
@@ -29,6 +30,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
   } = useTina(loaderData.result);
   const components = {
     aboutSection: AboutSection,
+    locationLinks: LocationLinks,
   };
 
   return (

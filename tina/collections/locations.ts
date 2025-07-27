@@ -35,6 +35,13 @@ export const locationCollection: Collection = {
       ],
     },
     {
+      type: "image",
+      name: "illustration",
+      label: "Illustration image",
+      description: "Illustration image to be used for links in location list",
+      required: false,
+    },
+    {
       type: "string",
       name: "office",
       label: "Office",

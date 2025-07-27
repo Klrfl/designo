@@ -55,7 +55,7 @@ export default function NavigationBar() {
       <div className="z-10 bg-white max-[48rem]:-translate-y-full max-[48rem]:peer-checked:translate-y-12 transition-transform max-[48rem]:absolute top-0 left-0 right-0 max-[48rem]:shadow-lg">
         <ul className="flex flex-col text-right md:flex-row gap-2 md:relative peer-checked:translate-y-100">
           {links.map((l) => (
-            <li>
+            <li key={l.href}>
               <Link
                 className="block uppercase text-sm hover:underline leading-tight tracking-[2px] transition-[background-color] px-4 py-3"
                 to={l.href}

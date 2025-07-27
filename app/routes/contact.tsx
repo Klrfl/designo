@@ -1,29 +1,7 @@
-import Canada from "~/assets/shared/desktop/illustration-canada.svg";
-import Australia from "~/assets/shared/desktop/illustration-australia.svg";
-import UnitedKingdom from "~/assets/shared/desktop/illustration-united-kingdom.svg";
-
 import CircleBg from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
-
-import LocationCard from "../components/shared/LocationCard";
+import LocationLinks from "../components/locations/LocationLinks";
 
 export default function Page() {
-  const locations = [
-    {
-      image: Canada,
-      caption: "Canada",
-      link: "/locations/#canada",
-    },
-    {
-      image: Australia,
-      caption: "Australia",
-      link: "/locations/#australia",
-    },
-    {
-      image: UnitedKingdom,
-      caption: "United Kingdom",
-      link: "/locations/#united-kingdom",
-    },
-  ];
   return (
     <>
       <section className="bg-primary px-24 py-12 text-white rounded-2xl grid grid-cols-12 gap-8 relative overflow-hidden">
@@ -96,9 +74,7 @@ export default function Page() {
       </section>
 
       <section className="grid grid-cols-subgrid gap-4">
-        {locations.map((l) => (
-          <LocationCard {...l} />
-        ))}
+        <LocationLinks />
       </section>
     </>
   );

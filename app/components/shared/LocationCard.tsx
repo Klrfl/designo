@@ -1,14 +1,17 @@
+import Australia from "~/assets/shared/desktop/illustration-australia.svg";
+
 interface Props {
-  image: string;
+  illustration?: string;
   caption: string;
   link: string;
 }
+
 export default function LocationCard(props: Props) {
   return (
     <article className="col-span-full lg:col-span-4 text-center flex flex-col items-center gap-4">
       <figure>
         <img
-          src={props.image}
+          src={props.illustration ?? Australia}
           className="max-h-full w-full"
           width="200"
           height="200"

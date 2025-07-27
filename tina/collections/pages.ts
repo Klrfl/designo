@@ -36,6 +36,19 @@ const aboutBlock: Template = {
   ],
 };
 
+const locationsLinks: Template = {
+  name: "locationLinks",
+  label: "Location links",
+  fields: [
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      required: false,
+    },
+  ],
+};
+
 export const pageCollection: Collection = {
   name: "page",
   label: "Pages",
@@ -58,7 +71,7 @@ export const pageCollection: Collection = {
       label: "Body",
       required: false,
       isBody: true,
-      templates: [aboutBlock],
+      templates: [aboutBlock, locationsLinks],
     },
   ],
 };
