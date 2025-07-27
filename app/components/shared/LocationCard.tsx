@@ -8,7 +8,7 @@ interface Props {
 
 export default function LocationCard(props: Props) {
   return (
-    <article className="col-span-full lg:col-span-4 text-center flex flex-col items-center gap-4">
+    <article className="col-[main] lg:col-span-4 text-center flex flex-col items-center gap-4">
       <figure>
         <img
           src={props.illustration ?? Australia}

@@ -9,13 +9,7 @@ import Friendly from "~/assets/home/desktop/illustration-friendly.svg";
 import ServiceCard from "~/components/home/ServiceCard";
 import WhyUsCard from "~/components/home/WhyUsCard";
 import client from "$/tina/__generated__/client";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import Column from "~/components/shared/Column";
 
 export async function loader() {
   const results = await client.queries.serviceConnection();
@@ -56,7 +50,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </figure>
       </header>
 
-      <section className="grid grid-cols-subgrid gap-4">
+      <Column>
         {services?.map((s, i) => (
           <ServiceCard
             image={s?.image ?? ""}
@@ -65,10 +59,10 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             className={i === 0 ? `md:row-span-2` : ""}
           />
         ))}
-      </section>
+      </Column>
 
-      <section className="flex flex-col md:flex-row items-center gap-4">
-        <WhyUsCard title="Passionate" image={Passionate}>
+      <Column>
+        <WhyUsCard heading="Passionate" image={Passionate}>
           <p>
             Each project starts with an in-depth brand research to ensure we
             only create products that serve a purpose. We merge art, design, and
@@ -76,7 +70,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           </p>
         </WhyUsCard>
 
-        <WhyUsCard title="Resourceful" image={Resourceful}>
+        <WhyUsCard heading="Resourceful" image={Resourceful}>
           <p>
             Everything that we do has a strategic purpose. We use an agile
             approach in all of our projects and value customer collaboration. It
@@ -84,14 +78,14 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           </p>
         </WhyUsCard>
 
-        <WhyUsCard title="Friendly" image={Friendly}>
+        <WhyUsCard heading="Friendly" image={Friendly}>
           <p>
             We are a group of enthusiastic folks who know how to put people
             first. Our success depends on our customers, and we strive to give
             them the best experience a company can provide.
           </p>
         </WhyUsCard>
-      </section>
+      </Column>
     </>
   );
 }
