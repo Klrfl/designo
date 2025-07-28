@@ -1,5 +1,5 @@
 import DesignoLight from "~/assets/shared/desktop/logo-light.png";
-import ThreeCircles from "~/assets/shared/desktop/bg-pattern-three-circles.svg";
+import SVGCircles from "~/assets/shared/desktop/bg-pattern-call-to-action.svg";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import { richTextComponents } from "./shared/RichTextComponents";
 import type { OfficeLocation } from "~/types";
@@ -22,10 +22,10 @@ export default function Footer({
   return (
     <>
       {displayCta && (
-        <div className="bg-primary text-white px-24 py-16 rounded-2xl -mb-20 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row relative">
+        <div className="bg-primary text-white px-24 py-16 rounded-2xl -mb-20 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row relative overflow-hidden">
           <img
-            src={ThreeCircles}
-            className="absolute inset-0 size-full"
+            src={SVGCircles}
+            className="absolute top-0 right-0 object-cover w-full h-full"
             width="200"
             alt=""
           />

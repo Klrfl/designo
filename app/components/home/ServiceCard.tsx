@@ -1,9 +1,10 @@
 import { Link } from "react-router";
+import Chevron from "~/assets/home/desktop/icon-right-arrow.svg";
 
 interface Props {
   className?: string | string[];
-  image: string;
-  title: string;
+  image?: string;
+  title?: string;
   link?: string;
 }
 
@@ -32,7 +33,9 @@ export default function ServiceCard(props: Props) {
           <h2 id={props.title} className="heading-2">
             {props.title}
           </h2>
-          <span className="tracking-[5px]">View Projects</span>
+          <span className="tracking-[5px] flex justify-center gap-4 items-center">
+            View Projects <img src={Chevron} alt="" />
+          </span>
         </div>
       </Link>
     </div>
