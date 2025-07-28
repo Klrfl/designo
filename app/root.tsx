@@ -66,7 +66,6 @@ export default function App({ loaderData }: Route.ComponentProps) {
     phone: config.footer?.officeLocation?.phone ?? "",
     name: config.footer?.officeLocation?.name ?? "",
     address: config.footer?.officeLocation?.address ?? "",
-    _sys: config.footer?.officeLocation?._sys!,
   } satisfies OfficeLocation;
 
   const socialLinks = config.footer?.socialLinks ?? [];

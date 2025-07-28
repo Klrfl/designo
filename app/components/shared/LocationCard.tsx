@@ -10,7 +10,7 @@ interface Props {
 export default function LocationCard(props: Props) {
   return (
     <article className="group col-[main] flex flex-col items-center gap-4 text-center lg:col-span-4">
-      <figure class="relative">
+      <figure className="relative">
         <img
           src={Circle}
           className="absolute inset-0 size-full group-nth-1:rotate-90 group-nth-3:rotate-270"

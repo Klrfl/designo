@@ -9,5 +9,4 @@ export type OfficeLocation = Pick<
   | "name"
   | "illustration"
   | "map"
-  | "_sys"
 >;

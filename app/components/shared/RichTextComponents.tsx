@@ -1,9 +1,9 @@
-import react from "react";
+import react, { type ReactNode } from "react";
 import type { Components } from "tinacms/dist/rich-text";
 
 type ComponentsType = Components<{
-  [x: string]: (props: react.PropsWithChildren) => react.JSX.Element;
-}>;
+  [x: string]: (props: {children: ReactNode}) => react.JSX.Element;
+} | {}>;
 
 export const richTextComponents: ComponentsType = {
   h1: (props) => <h1 className="heading-1">{props?.children}</h1>,

@@ -26,7 +26,7 @@ export default function LocationLinks() {
       key={l?.name}
       illustration={l.illustration!}
       caption={l?.name ?? ""}
-      link={`/locations#${slugify(l?._sys.filename ?? "")}`}
+      link={`/locations#${slugify(l?.name ?? "")}`}
     />
   ));
 }

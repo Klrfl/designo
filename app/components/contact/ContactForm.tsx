@@ -68,7 +68,7 @@ export default function ContactForm({ text }: Props) {
         </label>
         <textarea
           className="input min-h-28 resize-y"
-          cols="40"
+          cols={40}
           placeholder="Your Message"
           name="message"
           id="message"
