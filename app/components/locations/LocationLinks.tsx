@@ -14,8 +14,7 @@ export default function LocationLinks() {
       });
 
       setLocations(
-        () =>
-          response.data.locationConnection.edges!.map((e) => e?.node!) ?? [],
+        () => response.data.locationConnection.edges!.map((e) => e?.node!) ?? []
       );
     };
 

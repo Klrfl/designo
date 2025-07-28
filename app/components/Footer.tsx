@@ -23,29 +23,29 @@ export default function Footer({
   return (
     <>
       {displayCta && (
-        <div className="bg-primary text-white px-24 py-16 rounded-2xl -mb-20 translate-y-8 col-[main] flex flex-col items-center justify-between lg:flex-row relative overflow-hidden">
+        <div className="bg-primary relative col-[main] -mb-20 flex translate-y-8 flex-col items-center justify-between overflow-hidden rounded-2xl px-24 py-16 text-white lg:flex-row">
           <img
             src={SVGCircles}
-            className="absolute top-0 right-0 object-cover w-full h-full"
+            className="absolute top-0 right-0 h-full w-full object-cover"
             width="200"
             alt=""
           />
 
-          <div className="text-center lg:text-left max-w-[50ch]">
+          <div className="max-w-[50ch] text-center lg:text-left">
             <TinaMarkdown
               content={floatingCta}
               components={richTextComponents}
             />
           </div>
 
-          <button className="bg-white px-6 py-4 rounded-lg uppercase tracking-[1px] text-black">
+          <button className="rounded-lg bg-white px-6 py-4 tracking-[1px] text-black uppercase">
             Get in touch
           </button>
         </div>
       )}
 
-      <footer className="bg-base text-white/50 text-center lg:text-left pt-32 pb-24 grid grid-cols-subgrid col-[full] gap-y-8">
-        <div className="col-[main] flex flex-col lg:flex-row gap-4 items-center justify-between">
+      <footer className="bg-base col-[full] grid grid-cols-subgrid gap-y-8 pt-32 pb-24 text-center text-white/50 lg:text-left">
+        <div className="col-[main] flex flex-col items-center justify-between gap-4 lg:flex-row">
           <img
             src={DesignoLight}
             className="max-w-32"
@@ -54,10 +54,10 @@ export default function Footer({
             height="200"
           />
 
-          <ul className="uppercase flex flex-col lg:flex-row gap-4 text-white">
+          <ul className="flex flex-col gap-4 text-white uppercase lg:flex-row">
             {navigationLinks.map((l) => (
               <li key={l.label}>
-                <Link className="leading-3 tracking-[2px] text-sm" to={l.href}>
+                <Link className="text-sm leading-3 tracking-[2px]" to={l.href}>
                   {l.label}
                 </Link>
               </li>
@@ -83,7 +83,7 @@ export default function Footer({
           </div>
         </div>
 
-        <div className="col-[main] lg:col-span-4 flex gap-4 justify-self-center lg:justify-self-end">
+        <div className="col-[main] flex gap-4 justify-self-center lg:col-span-4 lg:justify-self-end">
           {socialLinks.map((l) => (
             <a key={l.url} href={l.url}>
               <img src={l.icon} />

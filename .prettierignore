@@ -1,4 +1,6 @@
 tina/__generated__/**/*
 tina/tina-lock.json
+content/**/*
+
 pnpm-lock.yaml
 package.json

@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: Props) {
   return (
     <li
       key={project.title}
-      className="bg-primary-100 rounded-lg grid sm:max-lg:grid-cols-2 overflow-hidden"
+      className="bg-primary-100 grid overflow-hidden rounded-lg sm:max-lg:grid-cols-2"
     >
       {project.image && (
         <figure>
@@ -22,8 +22,8 @@ export default function ProjectCard({ project }: Props) {
         </figure>
       )}
 
-      <figcaption className="text-center py-8 px-12 sm:max-lg:place-self-center">
-        <h3 className="heading-3 uppercase text-primary mb-4">
+      <figcaption className="px-12 py-8 text-center sm:max-lg:place-self-center">
+        <h3 className="heading-3 text-primary mb-4 uppercase">
           {project.title}
         </h3>
         <p className="text-base-700">{project.description}</p>

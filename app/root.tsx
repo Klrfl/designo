@@ -38,7 +38,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export async function loader() {
-  const response = await client.queries.config({ relativePath: "config.json" });
+  const response = await client.queries.config({
+    relativePath: "config.json",
+  });
   if (!response.data.config.navigation)
     throw data("bad website config", { status: 500 });
 
@@ -102,11 +104,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="py-12 p-4 container mx-auto grid place-items-center gap-4 text-center">
-      <h1 className="font-bold heading-1">{message}</h1>
+    <main className="mx-auto grid place-items-center gap-4 p-4 py-12 text-center">
+      <h1 className="heading-1 font-bold">{message}</h1>
       <p>{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="w-full overflow-x-auto p-4">
           <code>{stack}</code>
         </pre>
       )}

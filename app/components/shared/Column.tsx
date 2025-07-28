@@ -16,7 +16,7 @@ export default function Column(props: Props) {
     locationLinks: LocationLinks,
   };
   return (
-    <section className="grid grid-cols-subgrid col-[full] *:first:col-start-[main] gap-4">
+    <section className="col-[full] grid grid-cols-subgrid gap-4 *:first:col-start-[main]">
       <TinaMarkdown content={props.content} components={components} />
     </section>
   );

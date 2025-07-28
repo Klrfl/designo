@@ -48,7 +48,7 @@
 }
 
 @utility btn {
-  @apply block w-fit bg-white px-8 py-4 rounded-lg uppercase tracking-[1px] text-black;
+  @apply block w-fit rounded-lg bg-white px-8 py-4 tracking-[1px] text-black uppercase;
   cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
 }
 
 @utility input {
-  @apply block w-full px-4 py-3 text-[15px] text-white border-b-2 border-b-white/50 focus-visible:bg-black/5 focus-visible:border-b-white focus:outline-none transition-colors;
+  @apply block w-full border-b-2 border-b-white/50 px-4 py-3 text-[15px] text-white transition-colors focus:outline-none focus-visible:border-b-white focus-visible:bg-black/5;
 }
 
 @layer base {

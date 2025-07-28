@@ -13,7 +13,7 @@ export default function LocationList() {
       });
 
       setLocations(
-        () => response.data.locationConnection.edges?.map((e) => e?.node) ?? [],
+        () => response.data.locationConnection.edges?.map((e) => e?.node) ?? []
       );
     };
 
@@ -21,7 +21,7 @@ export default function LocationList() {
   }, []);
 
   return (
-    <div className="grid grid-cols-subgrid col-[full] sm:col-[main] gap-8 pb-40">
+    <div className="col-[full] grid grid-cols-subgrid gap-8 pb-40 sm:col-[main]">
       {locations.map((l) => (
         <LocationSection {...l} />
       ))}

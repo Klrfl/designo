@@ -12,7 +12,7 @@ export default function ServiceCard(props: Props) {
   return (
     <div
       className={[
-        "col-[main] md:col-span-6 rounded-2xl overflow-hidden relative",
+        "relative col-[main] overflow-hidden rounded-2xl md:col-span-6",
         props.className ?? [],
       ]
         .flat()
@@ -26,14 +26,14 @@ export default function ServiceCard(props: Props) {
 
       <Link
         to={`/services/${props.link}`}
-        className="relative flex flex-col justify-center items-center text-center px-24 py-32 size-full hover:bg-primary/50 focus-visible:bg-primary/50 transition-[background-color]"
+        className="hover:bg-primary/50 focus-visible:bg-primary/50 relative flex size-full flex-col items-center justify-center px-24 py-32 text-center transition-[background-color]"
         aria-labelledby={props.title}
       >
         <div className="text-white uppercase">
           <h2 id={props.title} className="heading-2">
             {props.title}
           </h2>
-          <span className="text-[15px] font-medium tracking-[5px] flex justify-center gap-4 items-center">
+          <span className="flex items-center justify-center gap-4 text-[15px] font-medium tracking-[5px]">
             View Projects <img src={Chevron} width="10" alt="" />
           </span>
         </div>

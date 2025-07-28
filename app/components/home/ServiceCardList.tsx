@@ -13,7 +13,7 @@ export default function ServiceCardList() {
       });
 
       setServices(
-        () => response.data.serviceConnection.edges!.map((e) => e?.node!) ?? [],
+        () => response.data.serviceConnection.edges!.map((e) => e?.node!) ?? []
       );
     };
 

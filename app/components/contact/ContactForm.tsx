@@ -8,14 +8,14 @@ interface Props {
 
 export default function ContactForm({ text }: Props) {
   return (
-    <section className="bg-primary px-24 py-12 text-white rounded-2xl grid lg:grid-cols-12 gap-8 relative overflow-hidden">
+    <section className="bg-primary relative grid gap-8 overflow-hidden rounded-2xl px-24 py-12 text-white lg:grid-cols-12">
       <img
         src={CircleBg}
-        className="absolute z-0 w-7/12 rotate-270 bottom-0"
+        className="absolute bottom-0 z-0 w-7/12 rotate-270"
         width="400"
         alt=""
       />
-      <header className="z-1 max-w-prose col-span-full lg:col-span-6 self-center">
+      <header className="z-1 col-span-full max-w-prose self-center lg:col-span-6">
         <TinaMarkdown content={text} components={richTextComponents} />
       </header>
 
@@ -25,7 +25,7 @@ export default function ContactForm({ text }: Props) {
           e.preventDefault();
           console.log(e);
         }}
-        className="flex flex-col col-span-full lg:col-start-8 lg:col-span-5 col-end-[-1] gap-4"
+        className="col-span-full col-end-[-1] flex flex-col gap-4 lg:col-span-5 lg:col-start-8"
       >
         <label className="sr-only" htmlFor="name">
           Name
@@ -67,7 +67,7 @@ export default function ContactForm({ text }: Props) {
           Message
         </label>
         <textarea
-          className="input resize-y min-h-28"
+          className="input min-h-28 resize-y"
           cols="40"
           placeholder="Your Message"
           name="message"

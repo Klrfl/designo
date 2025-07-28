@@ -20,7 +20,7 @@ export default function AboutSection({
     h2: (props?: PropsWithChildren) => (
       <h2
         className={[
-          "heading-2 font-medium mb-6",
+          "heading-2 mb-6 font-medium",
           !primary && "text-primary",
         ].join(" ")}
       >
@@ -32,23 +32,23 @@ export default function AboutSection({
   return (
     <section
       className={[
-        "rounded-2xl overflow-hidden flex flex-col items-center lg:flex-row relative",
+        "relative flex flex-col items-center overflow-hidden rounded-2xl lg:flex-row",
         primary ? "bg-primary text-white" : "bg-primary-100",
       ].join(" ")}
     >
-      <figure className="aspect-video size-full lg:aspect-auto flex-1">
+      <figure className="aspect-video size-full flex-1 lg:aspect-auto">
         <img src={image} className="size-full object-cover" alt="" />
       </figure>
 
       <figcaption
         className={[
-          "max-w-[42rem] p-16 lg:p-24 text-center lg:text-left",
+          "max-w-[42rem] p-16 text-center lg:p-24 lg:text-left",
           invert && "lg:order-first",
         ].join(" ")}
       >
         <img
           src={BgPattern}
-          className="absolute left-0 bottom-0 w-240 h-full object-left object-contain"
+          className="absolute bottom-0 left-0 h-full w-240 object-contain object-left"
           alt=""
         />
 

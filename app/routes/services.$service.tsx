@@ -14,7 +14,7 @@ export async function loader({ params }: Route.LoaderArgs) {
       sort: "order",
     });
     const servicePages = connection.data.serviceConnection.edges?.map(
-      (post) => post?.node,
+      (post) => post?.node
     );
 
     if (!servicePages) {
@@ -22,7 +22,7 @@ export async function loader({ params }: Route.LoaderArgs) {
     }
 
     const otherPages = servicePages.filter(
-      (post) => post?._sys.filename !== params.service,
+      (post) => post?._sys.filename !== params.service
     );
 
     return {
@@ -43,20 +43,20 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
     data: { serviceConnection },
   } = useTina(tinaProps);
   const page = serviceConnection.edges?.find(
-    (e) => e!.node?._sys.filename === params.service,
+    (e) => e!.node?._sys.filename === params.service
   )?.node;
 
   if (!page) throw new Error("no page found");
 
   return (
     <>
-      <header className="bg-primary text-white text-center rounded-2xl relative">
+      <header className="bg-primary relative rounded-2xl text-center text-white">
         <img
           src={BgPattern}
-          className="absolute inset-0 size-full object-cover z-0"
+          className="absolute inset-0 z-0 size-full object-cover"
           alt=""
         />
-        <div className="max-w-prose mx-auto py-16 z-1 relative">
+        <div className="relative z-1 mx-auto max-w-prose py-16">
           <TinaMarkdown components={richTextComponents} content={page.body} />
         </div>
       </header>
@@ -65,7 +65,7 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
 
       <ul className="grid gap-4 lg:grid-cols-3">
         {!page.projects && (
-          <li className="text-gray text-center col-span-full">
+          <li className="text-gray col-span-full text-center">
             No projects yet
           </li>
         )}
@@ -77,7 +77,7 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
         })}
       </ul>
 
-      <ul className="flex flex-wrap lg:flex-nowrap gap-4">
+      <ul className="flex flex-wrap gap-4 lg:flex-nowrap">
         {otherPages.map((r) => (
           <li key={r?.title} className="flex-1">
             <ServiceCard

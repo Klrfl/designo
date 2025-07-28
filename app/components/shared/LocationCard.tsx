@@ -9,7 +9,7 @@ interface Props {
 
 export default function LocationCard(props: Props) {
   return (
-    <article className="col-[main] lg:col-span-4 text-center flex flex-col items-center gap-4 group">
+    <article className="group col-[main] flex flex-col items-center gap-4 text-center lg:col-span-4">
       <figure class="relative">
         <img
           src={Circle}
@@ -26,7 +26,7 @@ export default function LocationCard(props: Props) {
         />
       </figure>
 
-      <figcaption className="uppercase heading-3 font-medium mb-6">
+      <figcaption className="heading-3 mb-6 font-medium uppercase">
         {props.caption}
       </figcaption>
 

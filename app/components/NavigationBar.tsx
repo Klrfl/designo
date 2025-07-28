@@ -12,7 +12,7 @@ interface Props {
 
 export default function NavigationBar({ links }: Props) {
   return (
-    <nav className="flex justify-between items-center px-6 py-4 bg-white relative group">
+    <nav className="group relative flex items-center justify-between bg-white px-6 py-4">
       <Link to="/" viewTransition>
         <img src={Logo} className="block" width="200" alt="" />
       </Link>
@@ -27,7 +27,7 @@ export default function NavigationBar({ links }: Props) {
 
       <label
         htmlFor="open-nav"
-        className="block cursor-pointer md:hidden peer-focus-visible:bg-amber-500"
+        className="block cursor-pointer peer-focus-visible:bg-amber-500 md:hidden"
       >
         <span className="sr-only">Toggle navigation bar</span>
         <img
@@ -44,12 +44,12 @@ export default function NavigationBar({ links }: Props) {
         />
       </label>
 
-      <div className="z-10 bg-white max-[48rem]:-translate-y-full max-[48rem]:peer-checked:translate-y-12 transition-transform max-[48rem]:absolute top-0 left-0 right-0 max-[48rem]:shadow-lg">
-        <ul className="flex flex-col text-right md:flex-row gap-2 md:relative peer-checked:translate-y-100">
+      <div className="top-0 right-0 left-0 z-10 bg-white transition-transform max-[48rem]:absolute max-[48rem]:-translate-y-full max-[48rem]:shadow-lg max-[48rem]:peer-checked:translate-y-12">
+        <ul className="flex flex-col gap-2 text-right peer-checked:translate-y-100 md:relative md:flex-row">
           {links.map((l) => (
             <li key={l.href}>
               <Link
-                className="block uppercase text-sm hover:underline leading-tight tracking-[2px] transition-[background-color] px-4 py-3"
+                className="block px-4 py-3 text-sm leading-tight tracking-[2px] uppercase transition-[background-color] hover:underline"
                 to={l.href}
               >
                 {l.label}
