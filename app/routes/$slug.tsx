@@ -4,9 +4,14 @@ import type { Route } from "./+types/$slug";
 import AboutSection from "~/components/about/AboutSection";
 import { data } from "react-router";
 import { useTina } from "tinacms/dist/react";
+
 import LocationLinks from "~/components/locations/LocationLinks";
 import ContactForm from "~/components/contact/ContactForm";
 import { richTextComponents } from "~/components/shared/RichTextComponents";
+import WhyUsCard from "~/components/home/WhyUsCard";
+import Column from "~/components/shared/Column";
+import HeroHeader from "~/components/shared/HeroHeader";
+import LocationList from "~/components/locations/LocationList";
 
 export async function loader({ params }: Route.LoaderArgs) {
   let result;
@@ -30,10 +35,15 @@ export default function Page({ loaderData }: Route.ComponentProps) {
   const {
     data: { page },
   } = useTina(loaderData.result);
+
   const components = {
     ...richTextComponents,
-    aboutSection: AboutSection,
+    column: Column,
+    whyUs: WhyUsCard,
+    HeroHeader: HeroHeader,
     locationLinks: LocationLinks,
+    LocationList,
+    aboutSection: AboutSection,
     contactForm: ContactForm,
   };
 

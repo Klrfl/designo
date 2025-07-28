@@ -14,7 +14,7 @@ const heroHeader: Template = {
   ],
 };
 
-export const whyUsBlock: Template = {
+const whyUsBlock: Template = {
   name: "whyUs",
   fields: [
     {
@@ -77,7 +77,20 @@ const aboutBlock: Template = {
   ],
 };
 
-const locationsLinks: Template = {
+const locationList: Template = {
+  name: "LocationList",
+  label: "Location list",
+  fields: [
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      required: false,
+    },
+  ],
+};
+
+const locationLinks: Template = {
   name: "locationLinks",
   label: "Location links",
   fields: [
@@ -105,11 +118,12 @@ const contactForm: Template = {
 
 export const columnBlock: Template = {
   name: "column",
+  label: "Column",
   fields: [
     {
       type: "rich-text",
       name: "content",
-      templates: [locationsLinks, whyUsBlock],
+      templates: [locationLinks, whyUsBlock],
     },
   ],
 };
@@ -139,7 +153,8 @@ export const pageCollection: Collection = {
       templates: [
         heroHeader,
         aboutBlock,
-        locationsLinks,
+        locationLinks,
+        locationList,
         contactForm,
         columnBlock,
       ],
