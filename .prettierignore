@@ -1,0 +1,4 @@
+tina/__generated__/**/*
+tina/tina-lock.json
+pnpm-lock.yaml
+package.json
