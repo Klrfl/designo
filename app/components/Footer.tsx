@@ -1,12 +1,22 @@
 import DesignoLight from "~/assets/shared/desktop/logo-light.png";
-import LogoFacebook from "~/assets/shared/desktop/icon-facebook.svg";
 import ThreeCircles from "~/assets/shared/desktop/bg-pattern-three-circles.svg";
+import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
+import { richTextComponents } from "./shared/RichTextComponents";
+import type { OfficeLocation } from "~/types";
 
 interface Props {
   displayCta?: boolean;
+  floatingCta: TinaMarkdownContent;
+  socialLinks: { icon: string; url: string }[];
+  officeLocation: OfficeLocation;
 }
 
-export default function Footer({ displayCta = true }: Props) {
+export default function Footer({
+  displayCta = true,
+  floatingCta,
+  socialLinks,
+  officeLocation,
+}: Props) {
   return (
     <>
       {displayCta && (
@@ -19,13 +29,10 @@ export default function Footer({ displayCta = true }: Props) {
           />
 
           <div className="text-center lg:text-left max-w-[50ch]">
-            <h2 className="heading-2 text-balance">
-              Let’s talk about your project
-            </h2>
-            <p>
-              Ready to take it to the next level? Contact us today and find out
-              how our expertise can help your business grow.
-            </p>
+            <TinaMarkdown
+              content={floatingCta}
+              components={richTextComponents}
+            />
           </div>
 
           <button className="bg-white px-6 py-4 rounded-lg uppercase tracking-[1px] text-black">
@@ -66,35 +73,27 @@ export default function Footer({ displayCta = true }: Props) {
         <hr className="col-[main] border-gray-700" />
 
         <div className="col-[main] lg:col-end-[span_4]">
-          <p className="font-bold">Designo Central Office</p>
-          <p>3886 Wellington Street</p>
-          <p>Toronto, Ontario M9C 3J5</p>
+          <p className="font-bold">{officeLocation.office}</p>
+          <p>{officeLocation.address}</p>
         </div>
 
         <div className="col-[main] lg:col-span-4">
           <div className="font-bold">
-            <p>Contact Us (Central Office)</p>
-            <p>P : +1 253-863-8967</p>
-            <p>M : contact@designo.co</p>
+            <p>
+              Contact Us (
+              {officeLocation.office.split(" ").splice(1, 2).join(" ")})
+            </p>
+            <p>P : {officeLocation.phone}</p>
+            <p>M : {officeLocation.email}</p>
           </div>
         </div>
 
         <div className="col-[main] lg:col-span-4 flex gap-4 justify-self-center lg:justify-self-end">
-          <a href="#">
-            <img src={LogoFacebook} />
-          </a>
-          <a href="#">
-            <img src={LogoFacebook} />
-          </a>
-          <a href="#">
-            <img src={LogoFacebook} />
-          </a>
-          <a href="#">
-            <img src={LogoFacebook} />
-          </a>
-          <a href="#">
-            <img src={LogoFacebook} />
-          </a>
+          {socialLinks.map((l) => (
+            <a href={l.url}>
+              <img src={l.icon} />
+            </a>
+          ))}
         </div>
       </footer>
     </>

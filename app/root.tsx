@@ -1,4 +1,5 @@
 import {
+  data,
   isRouteErrorResponse,
   Link,
   Links,
@@ -14,9 +15,11 @@ import "./app.css";
 import "@fontsource-variable/jost";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
+import client from "$/tina/__generated__/client";
+import { useTina } from "tinacms/dist/react";
+import type { OfficeLocation } from "./types";
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const location = useLocation();
   return (
     <html lang="en">
       <head>
@@ -26,12 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <main className="main-grid">
-          <NavigationBar />
-          {children}
-          <Footer displayCta={location.pathname !== "/contact"} />
-        </main>
-
+        <main className="main-grid">{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -39,8 +37,51 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  return <Outlet />;
+export async function loader() {
+  const response = await client.queries.config({ relativePath: "config.json" });
+  if (!response.data.config.navigation)
+    throw data("bad website config", { status: 500 });
+
+  return { response };
+}
+
+export default function App({ loaderData }: Route.ComponentProps) {
+  const {
+    data: { config },
+  } = useTina(loaderData.response);
+
+  const links =
+    config.navigation?.map((nav) => ({
+      href: nav?.navigationLink ?? "/",
+      label: nav?.label ?? "",
+    })) ?? [];
+
+  const floatingCta = config.footer?.floatingCta;
+
+  const office = {
+    office: config.footer?.officeLocation?.office ?? "",
+    email: config.footer?.officeLocation?.email ?? "",
+    phone: config.footer?.officeLocation?.phone ?? "",
+    name: config.footer?.officeLocation?.name ?? "",
+    address: config.footer?.officeLocation?.address ?? "",
+    _sys: config.footer?.officeLocation?._sys!,
+  } satisfies OfficeLocation;
+
+  const socialLinks = config.footer?.socialLinks ?? [];
+
+  const location = useLocation();
+  return (
+    <>
+      <NavigationBar links={links} />
+      <Outlet />
+      <Footer
+        officeLocation={office}
+        floatingCta={floatingCta}
+        socialLinks={socialLinks}
+        displayCta={location.pathname !== "/contact"}
+      />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

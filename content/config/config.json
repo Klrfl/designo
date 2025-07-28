@@ -1,0 +1,48 @@
+{
+  "navigation": [
+    {
+      "navigationLink": "/about",
+      "label": "Our company"
+    },
+    {
+      "navigationLink": "/locations",
+      "label": "Locations"
+    },
+    {
+      "navigationLink": "/contact",
+      "label": "Contact"
+    }
+  ],
+  "footer": {
+    "siteLinks": [
+      {
+        "link": "/about",
+        "label": "about"
+      }
+    ],
+    "floatingCta": "## Let's talk about your project\n\nReady to take it to the next level? Contact us today and find out how our expertise can help your business grow.\n",
+    "officeLocation": "content/locations/canada.md",
+    "socialLinks": [
+      {
+        "url": "facebook.com",
+        "icon": "/icon-facebook.svg"
+      },
+      {
+        "url": "youtube.com",
+        "icon": "/assets/footer/icon-youtube.svg"
+      },
+      {
+        "url": "twitter.com",
+        "icon": "/assets/footer/icon-twitter.svg"
+      },
+      {
+        "url": "pinterest.com",
+        "icon": "/assets/footer/icon-pinterest.svg"
+      },
+      {
+        "url": "instagram.com",
+        "icon": "/assets/footer/icon-instagram.svg"
+      }
+    ]
+  }
+}

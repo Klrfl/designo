@@ -45,7 +45,7 @@ export const locationCollection: Collection = {
       type: "string",
       name: "office",
       label: "Office",
-      required: false,
+      required: true,
     },
     {
       type: "string",

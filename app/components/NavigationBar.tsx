@@ -3,22 +3,14 @@ import Burger from "~/assets/shared/mobile/icon-hamburger.svg";
 import Close from "~/assets/shared/mobile/icon-close.svg";
 import { Link } from "react-router";
 
-export default function NavigationBar() {
-  const links = [
-    {
-      href: "/about",
-      label: "Our Company",
-    },
-    {
-      href: "/locations",
-      label: "Locations",
-    },
-    {
-      href: "/contact",
-      label: "Contact",
-    },
-  ];
+interface Props {
+  links: {
+    href: string;
+    label: string;
+  }[];
+}
 
+export default function NavigationBar({ links }: Props) {
   return (
     <nav className="flex justify-between items-center px-6 py-4 bg-white relative group">
       <Link to="/" viewTransition>
