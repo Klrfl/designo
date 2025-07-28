@@ -8,18 +8,20 @@ import { useTina } from "tinacms/dist/react";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
-    const connection = await client.queries.serviceConnection();
-    const result = connection.data.serviceConnection.edges?.map(
+    const connection = await client.queries.serviceConnection({
+      sort: "order",
+    });
+    const servicePages = connection.data.serviceConnection.edges?.map(
       (post) => post?.node,
     );
 
-    if (!result) {
+    if (!servicePages) {
       throw new Error("no content found");
     }
 
-    const otherPages = result
-      .filter((post) => post?._sys.filename !== params.service)
-      .sort((a, b) => a.order - b.order);
+    const otherPages = servicePages.filter(
+      (post) => post?._sys.filename !== params.service,
+    );
 
     return {
       otherPages,
@@ -39,8 +41,10 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
     data: { serviceConnection },
   } = useTina(tinaProps);
   const page = serviceConnection.edges?.find(
-    (e) => e.node?._sys.filename === params.service,
+    (e) => e!.node?._sys.filename === params.service,
   )?.node;
+
+  if (!page) throw new Error("no page found");
 
   return (
     <>
@@ -94,7 +98,7 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
         {otherPages.map((r) => (
           <li key={r?.title} className="flex-1">
             <ServiceCard
-              image={r?.image}
+              image={r?.image ?? ""}
               link={r?._sys.filename}
               title={r?.title}
             />
