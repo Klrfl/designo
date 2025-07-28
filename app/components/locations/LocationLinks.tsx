@@ -12,7 +12,6 @@ import type { LocationConnectionQuery } from "$/tina/__generated__/types";
 import LocationCard from "~/components/shared/LocationCard";
 import { useEffect, useState } from "react";
 import { slugify } from "$/app/utils";
-import Column from "~/components/shared/Column";
 
 type NonNullable<T> = Exclude<T, null | undefined>;
 type LocationEdges = NonNullable<
@@ -37,16 +36,12 @@ export default function LocationLinks() {
     fetchLocations();
   }, []);
 
-  return (
-    <Column>
-      {locations.map((l) => (
-        <LocationCard
-          key={l?.name}
-          illustration={l?.illustration}
-          caption={l?.name ?? ""}
-          link={`/locations#${slugify(l?._sys.filename ?? "")}`}
-        />
-      ))}
-    </Column>
-  );
+  return locations.map((l) => (
+    <LocationCard
+      key={l?.name}
+      illustration={l?.illustration}
+      caption={l?.name ?? ""}
+      link={`/locations#${slugify(l?._sys.filename ?? "")}`}
+    />
+  ));
 }

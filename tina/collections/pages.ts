@@ -1,5 +1,46 @@
 import type { Collection, Template } from "tinacms";
 
+const heroHeader: Template = {
+  name: "HeroHeader",
+  label: "Hero header",
+  fields: [
+    {
+      type: "rich-text",
+      name: "content",
+      label: "Content",
+      required: true,
+      // TODO: add embeddable button component here
+    },
+  ],
+};
+
+export const whyUsBlock: Template = {
+  name: "whyUs",
+  fields: [
+    {
+      type: "image",
+      name: "image",
+      label: "Image",
+      required: true,
+    },
+    {
+      type: "string",
+      name: "heading",
+      label: "Heading",
+      required: true,
+    },
+    {
+      type: "string",
+      name: "text",
+      label: "Text",
+      ui: {
+        component: "textarea",
+      },
+      required: true,
+    },
+  ],
+};
+
 const aboutBlock: Template = {
   name: "aboutSection",
   label: "About section",
@@ -62,6 +103,17 @@ const contactForm: Template = {
   ],
 };
 
+export const columnBlock: Template = {
+  name: "column",
+  fields: [
+    {
+      type: "rich-text",
+      name: "content",
+      templates: [locationsLinks, whyUsBlock],
+    },
+  ],
+};
+
 export const pageCollection: Collection = {
   name: "page",
   label: "Pages",
@@ -84,7 +136,13 @@ export const pageCollection: Collection = {
       label: "Body",
       required: false,
       isBody: true,
-      templates: [aboutBlock, locationsLinks, contactForm],
+      templates: [
+        heroHeader,
+        aboutBlock,
+        locationsLinks,
+        contactForm,
+        columnBlock,
+      ],
     },
   ],
 };

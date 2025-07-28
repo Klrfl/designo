@@ -1,8 +1,9 @@
 import type { PropsWithChildren } from "react";
 
 interface Props extends PropsWithChildren {
-  heading: string;
   image: string;
+  heading: string;
+  text: string;
 }
 
 export default function WhyUsCard(props: Props) {
@@ -20,6 +21,7 @@ export default function WhyUsCard(props: Props) {
 
       <figcaption className="col-span-full sm:max-lg:col-span-4 lg:text-center">
         <h2 className="uppercase heading-3">{props.heading}</h2>
+        <p>{props.text}</p>
         {props?.children}
       </figcaption>
     </div>

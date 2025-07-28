@@ -1,8 +1,8 @@
 import Circle from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
-import type { PropsWithChildren } from "react";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { PropsWithChildren } from "react";
 
-interface Props extends PropsWithChildren {
+interface Props {
   title: string;
   primary?: boolean;
   invert?: boolean;
@@ -17,14 +17,14 @@ export default function AboutSection({
   invert = false,
 }: Props) {
   const components = {
-    h2: (props) => (
+    h2: (props?: PropsWithChildren) => (
       <h2
         className={[
           "heading-2 font-medium mb-6",
           !primary && "text-primary",
         ].join(" ")}
       >
-        {props.children}
+        {props?.children}
       </h2>
     ),
   };
