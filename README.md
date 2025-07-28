@@ -1,18 +1,15 @@
-# Welcome to React Router!
+# Designo
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This repo contains the source code of my solution of Designo, a Guru frontendmentor.io challenge.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Tech
+- TinaCMS: Git-based content management in portable MDX and live editing
+- React Router: powerful SSR-ready React framework
+- Tailwind: for rapid prototyping
 
-## Features
+Check out live editing in action!
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+https://github.com/user-attachments/assets/d59a28b8-9991-46fb-9145-8fdf610a124d
 
 ## Getting Started
 
@@ -42,28 +39,6 @@ Create a production build:
 npm run build
 ```
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
 ### DIY Deployment
 
 If you're familiar with deploying Node applications, the built-in app server is production-ready.
@@ -78,10 +53,4 @@ Make sure to deploy the output of `npm run build`
 │   └── server/    # Server-side code
 ```
 
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Built with ❤️ by Efraim Munthe.
