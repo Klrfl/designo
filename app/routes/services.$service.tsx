@@ -1,9 +1,10 @@
 import client from "$/tina/__generated__/client";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import type { Route } from "./+types/$services.$service";
 import { data } from "react-router";
 import ServiceCard from "../components/home/ServiceCard";
 import { richTextComponents } from "~/components/shared/RichTextComponents";
+import type { Route } from "./+types/services.$service";
+import { useTina } from "tinacms/dist/react";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
@@ -16,20 +17,14 @@ export async function loader({ params }: Route.LoaderArgs) {
       throw new Error("no content found");
     }
 
-    const otherPages = result.filter(
-      (post) => post?._sys.filename !== params.service,
-    );
+    const otherPages = result
+      .filter((post) => post?._sys.filename !== params.service)
+      .sort((a, b) => a.order - b.order);
 
-    const post = result.find((post) => post?._sys.filename === params.service);
-
-    if (!post) {
-      console.error(result);
-      console.error(post);
-
-      throw new Error("no content found");
-    }
-
-    return { otherPages, post };
+    return {
+      otherPages,
+      tinaProps: connection,
+    };
   } catch (err) {
     console.log("error when rendering page:\n");
     console.error(err);
@@ -38,28 +33,34 @@ export async function loader({ params }: Route.LoaderArgs) {
   }
 }
 
-export default function Page({ loaderData }: Route.ComponentProps) {
-  const { otherPages, post } = loaderData;
+export default function Page({ loaderData, params }: Route.ComponentProps) {
+  const { otherPages, tinaProps } = loaderData;
+  const {
+    data: { serviceConnection },
+  } = useTina(tinaProps);
+  const page = serviceConnection.edges?.find(
+    (e) => e.node?._sys.filename === params.service,
+  )?.node;
 
   return (
     <>
       <header className="bg-primary text-white text-center rounded-2xl">
         <div className="max-w-prose mx-auto py-16">
-          <TinaMarkdown components={richTextComponents} content={post.body} />
+          <TinaMarkdown components={richTextComponents} content={page.body} />
         </div>
       </header>
 
       <h2 className="sr-only">Our Projects</h2>
 
       <ul className="grid gap-4 lg:grid-cols-3">
-        {!post.projects && (
+        {!page.projects && (
           <li className="text-gray text-center col-span-full">
             No projects yet
           </li>
         )}
 
-        {post.projects?.map((p) => {
-          if (!p) return <h1>no post</h1>;
+        {page.projects?.map((p) => {
+          if (!p) return <h1>no page</h1>;
 
           return (
             <li
@@ -90,17 +91,15 @@ export default function Page({ loaderData }: Route.ComponentProps) {
       </ul>
 
       <ul className="flex flex-wrap lg:flex-nowrap gap-4">
-        {otherPages
-          .sort((a, b) => a.order - b.order)
-          .map((r) => (
-            <li className="flex-1">
-              <ServiceCard
-                image={r?.image}
-                link={r?._sys.filename}
-                title={r?.title}
-              />
-            </li>
-          ))}
+        {otherPages.map((r) => (
+          <li key={r?.title} className="flex-1">
+            <ServiceCard
+              image={r?.image}
+              link={r?._sys.filename}
+              title={r?.title}
+            />
+          </li>
+        ))}
       </ul>
     </>
   );

@@ -24,9 +24,9 @@ export default function ServiceCard(props: Props) {
       />
 
       <Link
-        to={props.link ?? "#"}
+        to={`/services/${props.link}` ?? "#"}
         className="relative flex flex-col justify-center items-center text-center px-24 py-32 size-full hover:bg-primary/50 focus-visible:bg-primary/50 transition-[background-color]"
-        aria-aria-labelledby={props.title}
+        aria-labelledby={props.title}
       >
         <div className="text-white uppercase">
           <h2 id={props.title} className="heading-2">

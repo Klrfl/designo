@@ -39,13 +39,18 @@ export default function Page({ loaderData }: Route.ComponentProps) {
 
   const components = {
     ...richTextComponents,
+    /* shared */
     column: Column,
+    locationLinks: LocationLinks,
+
+    /* home page */
     whyUs: WhyUsCard,
     HeroHeader: HeroHeader,
     ServiceLinks: ServiceCardList,
-    locationLinks: LocationLinks,
     LocationList,
+
     aboutSection: AboutSection,
+
     contactForm: ContactForm,
   };
 

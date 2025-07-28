@@ -13,6 +13,7 @@ export const serviceCollection: Collection = {
         return filenameSlug ?? "";
       },
     },
+    router: ({ document }) => `/services/${document._sys.filename}`,
   },
   fields: [
     {
@@ -42,6 +43,12 @@ export const serviceCollection: Collection = {
       label: "Projects",
       description: "list of projects to show",
       list: true,
+      ui: {
+        itemProps: (item) => ({
+          key: item?.title + item?.description,
+          label: item?.title ?? "Project",
+        }),
+      },
       fields: [
         {
           type: "string",
@@ -53,7 +60,7 @@ export const serviceCollection: Collection = {
         {
           type: "string",
           name: "description",
-          label: "description",
+          label: "Description",
         },
         {
           type: "image",
