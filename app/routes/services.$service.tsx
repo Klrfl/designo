@@ -6,6 +6,7 @@ import { richTextComponents } from "~/components/shared/RichTextComponents";
 import type { Route } from "./+types/services.$service";
 import { useTina } from "tinacms/dist/react";
 import ProjectCard from "~/components/services/ProjectCard";
+import BgPattern from "~/assets/web-design/desktop/bg-pattern-intro-web.svg";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
@@ -49,8 +50,13 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
 
   return (
     <>
-      <header className="bg-primary text-white text-center rounded-2xl">
-        <div className="max-w-prose mx-auto py-16">
+      <header className="bg-primary text-white text-center rounded-2xl relative">
+        <img
+          src={BgPattern}
+          className="absolute inset-0 size-full object-cover z-0"
+          alt=""
+        />
+        <div className="max-w-prose mx-auto py-16 z-1 relative">
           <TinaMarkdown components={richTextComponents} content={page.body} />
         </div>
       </header>

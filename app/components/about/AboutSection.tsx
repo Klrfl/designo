@@ -1,4 +1,4 @@
-import Circle from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
+import BgPattern from "~/assets/about/desktop/bg-pattern-hero-about-desktop.svg";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import type { PropsWithChildren } from "react";
 
@@ -47,7 +47,7 @@ export default function AboutSection({
         ].join(" ")}
       >
         <img
-          src={Circle}
+          src={BgPattern}
           className="absolute left-0 bottom-0 w-240 h-full object-left object-contain"
           alt=""
         />
