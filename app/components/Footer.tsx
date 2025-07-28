@@ -8,6 +8,7 @@ interface Props {
   displayCta?: boolean;
   floatingCta: TinaMarkdownContent;
   socialLinks: { icon: string; url: string }[];
+  navigationLinks: { href: string; label: string }[];
   officeLocation: OfficeLocation;
 }
 
@@ -15,6 +16,7 @@ export default function Footer({
   displayCta = true,
   floatingCta,
   socialLinks,
+  navigationLinks,
   officeLocation,
 }: Props) {
   return (
@@ -52,21 +54,13 @@ export default function Footer({
           />
 
           <ul className="uppercase flex flex-col lg:flex-row gap-4 text-white">
-            <li>
-              <a className="leading-3 tracking-[2px] text-sm" href="#">
-                Our company
-              </a>
-            </li>
-            <li>
-              <a className="leading-3 tracking-[2px] text-sm" href="#">
-                Locations
-              </a>
-            </li>
-            <li>
-              <a className="leading-3 tracking-[2px] text-sm" href="#">
-                Contact
-              </a>
-            </li>
+            {navigationLinks.map((l) => (
+              <li key={l.label}>
+                <a className="leading-3 tracking-[2px] text-sm" href={l.href}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -90,7 +84,7 @@ export default function Footer({
 
         <div className="col-[main] lg:col-span-4 flex gap-4 justify-self-center lg:justify-self-end">
           {socialLinks.map((l) => (
-            <a href={l.url}>
+            <a key={l.url} href={l.url}>
               <img src={l.icon} />
             </a>
           ))}

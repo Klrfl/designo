@@ -41,31 +41,6 @@ export const configCollection: Collection = {
       label: "Footer",
       fields: [
         {
-          type: "object",
-          name: "siteLinks",
-          label: "Site links",
-          list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: item?.label,
-            }),
-          },
-          fields: [
-            {
-              type: "string",
-              name: "link",
-              label: "link",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "label",
-              label: "Label",
-              required: true,
-            },
-          ],
-        },
-        {
           type: "rich-text",
           name: "floatingCta",
           label: "Floating CTA",

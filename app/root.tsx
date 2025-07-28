@@ -75,6 +75,7 @@ export default function App({ loaderData }: Route.ComponentProps) {
       <NavigationBar links={links} />
       <Outlet />
       <Footer
+        navigationLinks={links}
         officeLocation={office}
         floatingCta={floatingCta}
         socialLinks={socialLinks}

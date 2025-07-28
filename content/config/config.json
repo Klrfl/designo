@@ -14,12 +14,6 @@
     }
   ],
   "footer": {
-    "siteLinks": [
-      {
-        "link": "/about",
-        "label": "about"
-      }
-    ],
     "floatingCta": "## Let's talk about your project\n\nReady to take it to the next level? Contact us today and find out how our expertise can help your business grow.\n",
     "officeLocation": "content/locations/canada.md",
     "socialLinks": [
