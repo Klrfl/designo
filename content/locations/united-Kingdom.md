@@ -1,5 +1,6 @@
 ---
 name: United Kingdom
+illustration: /assets/locations/illustration-united-kingdom.svg
 office: Designo UK Office
 address: "13 Colorado Way \LRhyd-y-fro SA8 9GA"
 phone: 078 3115 1400

@@ -27,7 +27,7 @@ export default function NavigationBar({ links }: Props) {
 
       <label
         htmlFor="open-nav"
-        className="block cursor-pointer md:hidden peer-focus:bg-amber-500"
+        className="block cursor-pointer md:hidden peer-focus-visible:bg-amber-500"
       >
         <span className="sr-only">Toggle navigation bar</span>
         <img

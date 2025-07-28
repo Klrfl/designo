@@ -33,8 +33,8 @@ export default function ServiceCard(props: Props) {
           <h2 id={props.title} className="heading-2">
             {props.title}
           </h2>
-          <span className="tracking-[5px] flex justify-center gap-4 items-center">
-            View Projects <img src={Chevron} alt="" />
+          <span className="text-[15px] font-medium tracking-[5px] flex justify-center gap-4 items-center">
+            View Projects <img src={Chevron} width="10" alt="" />
           </span>
         </div>
       </Link>

@@ -5,6 +5,7 @@ import ServiceCard from "../components/home/ServiceCard";
 import { richTextComponents } from "~/components/shared/RichTextComponents";
 import type { Route } from "./+types/services.$service";
 import { useTina } from "tinacms/dist/react";
+import ProjectCard from "~/components/services/ProjectCard";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
@@ -66,31 +67,7 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
         {page.projects?.map((p) => {
           if (!p) return <h1>no page</h1>;
 
-          return (
-            <li
-              key={p.title}
-              className="bg-primary-100  rounded-lg overflow-hidden"
-            >
-              {p.image && (
-                <figure>
-                  <img
-                    src={p.image}
-                    className="w-full"
-                    width="450"
-                    height="800"
-                    alt=""
-                  />
-                </figure>
-              )}
-
-              <figcaption className="text-center py-8 px-12">
-                <h3 className="heading-3 uppercase text-primary mb-4">
-                  {p.title}
-                </h3>
-                <p className="text-base-700">{p.description}</p>
-              </figcaption>
-            </li>
-          );
+          return <ProjectCard project={p} />;
         })}
       </ul>
 
