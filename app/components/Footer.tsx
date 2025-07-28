@@ -3,6 +3,7 @@ import SVGCircles from "~/assets/shared/desktop/bg-pattern-call-to-action.svg";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import { richTextComponents } from "./shared/RichTextComponents";
 import type { OfficeLocation } from "~/types";
+import { Link } from "react-router";
 
 interface Props {
   displayCta?: boolean;
@@ -56,9 +57,9 @@ export default function Footer({
           <ul className="uppercase flex flex-col lg:flex-row gap-4 text-white">
             {navigationLinks.map((l) => (
               <li key={l.label}>
-                <a className="leading-3 tracking-[2px] text-sm" href={l.href}>
+                <Link className="leading-3 tracking-[2px] text-sm" to={l.href}>
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

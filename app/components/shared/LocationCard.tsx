@@ -1,4 +1,4 @@
-import Australia from "~/assets/shared/desktop/illustration-australia.svg";
+import { Link } from "react-router";
 
 interface Props {
   illustration?: string;
@@ -11,7 +11,7 @@ export default function LocationCard(props: Props) {
     <article className="col-[main] lg:col-span-4 text-center flex flex-col items-center gap-4">
       <figure>
         <img
-          src={props.illustration ?? Australia}
+          src={props.illustration ?? ""}
           className="max-h-full w-full"
           width="200"
           height="200"
@@ -23,9 +23,9 @@ export default function LocationCard(props: Props) {
         {props.caption}
       </figcaption>
 
-      <a href={props.link} className="align-self-end btn btn-dark">
+      <Link to={props.link} className="align-self-end btn btn-dark">
         See location
-      </a>
+      </Link>
     </article>
   );
 }

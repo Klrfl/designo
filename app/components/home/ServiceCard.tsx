@@ -25,7 +25,7 @@ export default function ServiceCard(props: Props) {
       />
 
       <Link
-        to={`/services/${props.link}` ?? "#"}
+        to={`/services/${props.link}`}
         className="relative flex flex-col justify-center items-center text-center px-24 py-32 size-full hover:bg-primary/50 focus-visible:bg-primary/50 transition-[background-color]"
         aria-labelledby={props.title}
       >
