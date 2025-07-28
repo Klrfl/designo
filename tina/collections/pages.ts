@@ -14,6 +14,19 @@ const heroHeader: Template = {
   ],
 };
 
+const serviceLinks: Template = {
+  name: "ServiceLinks",
+  label: "Service Links",
+  fields: [
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      required: false,
+    },
+  ],
+};
+
 const whyUsBlock: Template = {
   name: "whyUs",
   fields: [
@@ -123,7 +136,7 @@ export const columnBlock: Template = {
     {
       type: "rich-text",
       name: "content",
-      templates: [locationLinks, whyUsBlock],
+      templates: [serviceLinks, locationLinks, whyUsBlock],
     },
   ],
 };
@@ -134,7 +147,10 @@ export const pageCollection: Collection = {
   format: "mdx",
   path: "content/pages",
   ui: {
-    router: (arg) => `/${arg.document._sys.filename}`,
+    router: (arg) =>
+      arg.document._sys.filename === "home"
+        ? "/"
+        : `/${arg.document._sys.filename}`,
   },
   fields: [
     {

@@ -12,6 +12,7 @@ import WhyUsCard from "~/components/home/WhyUsCard";
 import Column from "~/components/shared/Column";
 import HeroHeader from "~/components/shared/HeroHeader";
 import LocationList from "~/components/locations/LocationList";
+import ServiceCardList from "~/components/home/ServiceCardList";
 
 export async function loader({ params }: Route.LoaderArgs) {
   let result;
@@ -41,6 +42,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
     column: Column,
     whyUs: WhyUsCard,
     HeroHeader: HeroHeader,
+    ServiceLinks: ServiceCardList,
     locationLinks: LocationLinks,
     LocationList,
     aboutSection: AboutSection,
