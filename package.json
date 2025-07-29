@@ -6,6 +6,7 @@
     "build": "tinacms build --local -c \"react-router build\"",
     "dev": "tinacms dev -c \"react-router dev\"",
     "start": "react-router-serve ./build/server/index.js",
+    "typegen": "wrangler types && react-router typegen",
     "typecheck": "react-router typegen && tsc",
     "format": "prettier --write .",
     "preview": "pnpm build && vite preview",

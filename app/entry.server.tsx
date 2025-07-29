@@ -3,16 +3,12 @@ import { renderToReadableStream } from "react-dom/server";
 import { ServerRouter } from "react-router";
 import { isbot } from "isbot";
 
-export const streamTimeout = 5_000;
-
 export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   routerContext: EntryContext,
   _loadContext: AppLoadContext
-  // If you have middleware enabled:
-  // loadContext: unstable_RouterContextProvider
 ) {
   let shellRendered = false;
   const userAgent = request.headers.get("user-agent");
