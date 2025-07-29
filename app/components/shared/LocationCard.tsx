@@ -30,7 +30,7 @@ export default function LocationCard(props: Props) {
         {props.caption}
       </figcaption>
 
-      <Link to={props.link} className="align-self-end btn btn-dark">
+      <Link reloadDocument to={props.link} className="align-self-end btn btn-dark">
         See location
       </Link>
     </article>

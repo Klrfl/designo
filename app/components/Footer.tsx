@@ -57,7 +57,7 @@ export default function Footer({
           <ul className="flex flex-col gap-4 text-white uppercase lg:flex-row">
             {navigationLinks.map((l) => (
               <li key={l.label}>
-                <Link className="text-sm leading-3 tracking-[2px]" to={l.href}>
+                <Link reloadDocument className="text-sm leading-3 tracking-[2px]" to={l.href}>
                   {l.label}
                 </Link>
               </li>
