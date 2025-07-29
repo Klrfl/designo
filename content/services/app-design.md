@@ -22,6 +22,4 @@ projects:
 
 # App Design
 
-Our mobile designs bring intuitive digital solutions
-
-to your customers right at their fingertips.
+Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.
