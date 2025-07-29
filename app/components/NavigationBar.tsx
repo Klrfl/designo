@@ -13,7 +13,7 @@ interface Props {
 export default function NavigationBar({ links }: Props) {
   return (
     <nav className="group relative flex items-center justify-between bg-white px-6 py-4">
-      <Link to="/" viewTransition>
+      <Link reloadDocument to="/">
         <img src={Logo} className="block" width="200" alt="" />
       </Link>
 

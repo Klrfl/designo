@@ -112,7 +112,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
 
-      <Link className="btn btn-dark" to="/">
+      <Link reloadDocument className="btn btn-dark" to="/">
         Go back home
       </Link>
     </main>
