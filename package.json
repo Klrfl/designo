@@ -10,7 +10,7 @@
     "typecheck": "react-router typegen && tsc",
     "format": "prettier --write .",
     "preview": "pnpm build && vite preview",
-    "deploy": "pnpm build && wrangler deploy"
+    "deploy": "pnpm build && NODE_ENV=production wrangler deploy"
   },
   "dependencies": {
     "@fontsource-variable/jost": "^5.2.6",
