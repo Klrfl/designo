@@ -1,0 +1,8 @@
+ignoredBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - better-sqlite3
+  - esbuild
+
+onlyBuiltDependencies:
+  - sharp
+  - workerd
