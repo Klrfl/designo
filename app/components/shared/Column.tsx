@@ -6,6 +6,7 @@ import ServiceCardList from "~/components/home/ServiceCardList";
 
 /**TODO: remove children props */
 interface Props extends PropsWithChildren {
+  className?: string;
   content: TinaMarkdownContent;
 }
 
@@ -16,7 +17,12 @@ export default function Column(props: Props) {
     locationLinks: LocationLinks,
   };
   return (
-    <section className="col-[full] grid grid-cols-subgrid gap-4 *:first:col-start-[main]">
+    <section
+      className={[
+        `col-[full] grid grid-cols-subgrid gap-x-12 gap-y-10 *:first:col-start-[main] md:gap-y-6 lg:gap-x-7.5`,
+        props.className,
+      ].join(" ")}
+    >
       <TinaMarkdown content={props.content} components={components} />
     </section>
   );

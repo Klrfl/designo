@@ -4,14 +4,12 @@
   --font-sans:
     "Jost Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
 
-@theme {
   --text-4xl: 2.5rem;
   --text-base: hsl(264 5 20);
 
   --color-peach-500: hsl(10 72 66);
-  --color-peach-300: hsl(11 100 80);
+  --color-peach-300: hsl(10 100 80);
   --color-black: hsl(270 3 11);
   --color-white: hsl(0 0 100);
 
@@ -20,6 +18,8 @@
   --color-peach-100: hsl(14 76 97);
 
   --color-primary: var(--color-peach-500);
+  --color-primary-500: var(--color-peach-500);
+  --color-primary-300: var(--color-peach-300);
   --color-primary-100: var(--color-peach-100);
   --color-secondary: var(--color-peach-300);
 
@@ -31,24 +31,25 @@
 @utility heading-1 {
   font-size: var(--text-5xl);
   line-height: 3rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 @utility heading-2 {
   font-size: var(--text-4xl);
   line-height: 3rem;
   letter-spacing: 2px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 @utility heading-3 {
   font-size: var(--text-xl);
-  line-height: 26px;
+  line-height: calc(var(--spacing) * 6.5);
   letter-spacing: 5px;
 }
 
 @utility btn {
-  @apply block w-fit rounded-lg bg-white px-8 py-4 tracking-[1px] text-black uppercase;
+  @apply hover:bg-primary-300 block w-fit rounded-lg bg-white px-8 py-4 text-[calc(15/16_*1rem)] tracking-[1px] text-black uppercase hover:text-white;
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
 }
 
@@ -68,24 +69,25 @@
   }
 
   p {
-    line-height: calc(var(--spacing) * 7);
+    line-height: calc(var(--spacing) * 6.5);
   }
 
   .main-grid {
     display: grid;
-    row-gap: calc(var(--spacing) * 16);
+    grid-template-rows: min-content auto;
 
-    --gutter: minmax(1rem, 1fr);
+    --gutter: minmax(calc(var(--spacing) * 6), 1fr);
 
     @media screen and (min-width: 50rem) {
-      --gutter: minmax(2rem, 1fr);
+      --gutter: minmax(0, 1fr);
+      column-gap: calc(var(--spacing) * 8);
     }
 
     grid-template-columns:
       [full-start]
       var(--gutter)
       [main-start]
-      repeat(12, minmax(0, 6rem))
+      repeat(12, minmax(0, 3.953rem))
       [main-end]
       var(--gutter)
       [full-end];
@@ -93,5 +95,13 @@
 
   .main-grid > * {
     grid-column: main;
+  }
+
+  .main-grid > * + *:where(:not(:last-child)) {
+    margin-bottom: calc(var(--spacing) * 30);
+
+    @media (min-width: 1024px) {
+      margin-bottom: calc(var(--spacing) * 40);
+    }
   }
 }

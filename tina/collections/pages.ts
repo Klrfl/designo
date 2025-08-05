@@ -134,6 +134,14 @@ export const columnBlock: Template = {
   label: "Column",
   fields: [
     {
+      type: "string",
+      name: "className",
+      label: "Tailwind classes",
+      description:
+        "customize the column with Tailwind classes. Classes here will override the default ones",
+      required: false,
+    },
+    {
       type: "rich-text",
       name: "content",
       templates: [serviceLinks, locationLinks, whyUsBlock],

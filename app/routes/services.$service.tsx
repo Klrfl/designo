@@ -50,7 +50,7 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
 
   return (
     <>
-      <header className="bg-primary relative rounded-2xl text-center text-white">
+      <header className="bg-primary relative rounded-2xl text-center text-white max-md:mb-24">
         <img
           src={BgPattern}
           className="absolute inset-0 z-0 size-full object-cover"
@@ -63,7 +63,7 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
 
       <h2 className="sr-only">Our Projects</h2>
 
-      <ul className="grid gap-4 lg:grid-cols-3">
+      <ul className="grid gap-10 max-md:mb-24 md:gap-8 lg:grid-cols-3 lg:gap-x-7.5">
         {!page.projects && (
           <li className="text-gray col-span-full text-center">
             No projects yet
@@ -77,9 +77,9 @@ export default function Page({ loaderData, params }: Route.ComponentProps) {
         })}
       </ul>
 
-      <ul className="flex flex-wrap gap-4 lg:flex-nowrap">
+      <ul className="grid grid-cols-subgrid gap-6 max-md:mb-24 lg:flex-nowrap">
         {otherPages.map((r) => (
-          <li key={r?.title} className="flex-1">
+          <li key={r?.title} className="col-span-full lg:col-span-6">
             <ServiceCard
               image={r?.image ?? ""}
               link={r?._sys.filename}

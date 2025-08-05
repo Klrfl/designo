@@ -12,7 +12,7 @@ export default function ServiceCard(props: Props) {
   return (
     <div
       className={[
-        "relative col-[main] overflow-hidden rounded-2xl md:col-span-6",
+        "relative col-[main] h-full overflow-hidden rounded-2xl md:col-span-6",
         props.className ?? [],
       ]
         .flat()

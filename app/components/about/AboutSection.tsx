@@ -32,7 +32,9 @@ export default function AboutSection({
   return (
     <section
       className={[
-        "relative flex flex-col items-center overflow-hidden rounded-2xl lg:flex-row",
+        "about-section",
+        "relative col-[full] flex flex-col items-center overflow-hidden md:col-[main] md:rounded-2xl lg:flex-row",
+        "max-md:first-of-type:mb-0",
         primary ? "bg-primary text-white" : "bg-primary-100",
       ].join(" ")}
     >

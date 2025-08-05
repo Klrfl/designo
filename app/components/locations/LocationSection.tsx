@@ -15,10 +15,10 @@ interface Props {
 export default function LocationSection(props: Props) {
   return (
     <section
-      className="col-span-full grid grid-cols-subgrid"
+      className="col-span-full grid grid-cols-subgrid sm:max-lg:gap-y-6"
       id={slugify(props.name)}
     >
-      <figure className="col-span-full overflow-hidden rounded-2xl lg:col-span-4">
+      <figure className="col-span-full overflow-hidden md:rounded-2xl lg:col-span-4">
         {/**TODO: integrate leaflet here */}
         <img
           src={CanadaMap}
@@ -30,8 +30,8 @@ export default function LocationSection(props: Props) {
 
       <figcaption
         className={[
-          "bg-primary-100 relative col-span-full grid grid-cols-2 grid-rows-2 gap-x-16 gap-y-6 rounded-2xl px-24 py-16 lg:col-[span_8]",
-          Boolean(props.invert) && "order-first",
+          "bg-primary-100 relative col-span-full grid grid-rows-2 gap-x-16 gap-y-6 px-24 py-16 text-center sm:grid-cols-2 sm:text-left md:rounded-2xl lg:col-[span_8]",
+          Boolean(props.invert) && "lg:order-first",
         ].join(" ")}
       >
         <img

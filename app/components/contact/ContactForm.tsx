@@ -1,6 +1,5 @@
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import CircleBg from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
-import { richTextComponents } from "~/components/shared/RichTextComponents";
 
 interface Props {
   text: TinaMarkdownContent;
@@ -8,15 +7,22 @@ interface Props {
 
 export default function ContactForm({ text }: Props) {
   return (
-    <section className="bg-primary relative grid gap-8 overflow-hidden rounded-2xl px-24 py-12 text-white lg:grid-cols-12">
+    <section className="bg-primary relative mb-30 grid gap-10 overflow-hidden rounded-2xl px-15 py-12 text-white lg:mb-40 lg:grid-cols-12 lg:px-24">
       <img
         src={CircleBg}
         className="absolute bottom-0 z-0 w-7/12 rotate-270"
         width="400"
         alt=""
       />
-      <header className="z-1 col-span-full max-w-prose self-center lg:col-span-6">
-        <TinaMarkdown content={text} components={richTextComponents} />
+      <header className="z-1 col-span-full max-w-114 self-center lg:col-span-6">
+        <TinaMarkdown
+          content={text}
+          components={{
+            h1: (props?: object) => (
+              <h1 className="heading-1 mb-8">{props?.children}</h1>
+            ),
+          }}
+        />
       </header>
 
       {/** TODO: add validation and some type of feedback */}
@@ -25,7 +31,7 @@ export default function ContactForm({ text }: Props) {
           e.preventDefault();
           console.log(e);
         }}
-        className="col-span-full col-end-[-1] flex flex-col gap-4 lg:col-span-5 lg:col-start-8"
+        className="col-span-full col-end-[-1] flex flex-col gap-6 lg:col-span-5 lg:col-start-8"
       >
         <label className="sr-only" htmlFor="name">
           Name

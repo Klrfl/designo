@@ -12,8 +12,8 @@ interface Props {
 
 export default function NavigationBar({ links }: Props) {
   return (
-    <nav className="group relative flex items-center justify-between bg-white px-6 py-4">
-      <Link reloadDocument to="/">
+    <nav className="group relative flex items-center justify-between bg-white py-8.5 lg:py-16">
+      <Link to="/">
         <img src={Logo} className="block" width="200" alt="" />
       </Link>
 
@@ -44,12 +44,12 @@ export default function NavigationBar({ links }: Props) {
         />
       </label>
 
-      <div className="top-0 right-0 left-0 z-10 bg-white transition-transform max-[48rem]:absolute max-[48rem]:-translate-y-full max-[48rem]:shadow-lg max-[48rem]:peer-checked:translate-y-12">
-        <ul className="flex flex-col gap-2 text-right peer-checked:translate-y-100 md:relative md:flex-row">
+      <div className="top-0 right-0 left-0 z-10 bg-white transition-transform max-[48rem]:absolute max-md:-translate-y-full max-[48rem]:shadow-lg max-md:peer-checked:translate-y-12">
+        <ul className="flex flex-col gap-10.5 text-right peer-checked:translate-y-100 md:relative md:flex-row">
           {links.map((l) => (
             <li key={l.href}>
               <Link
-                className="block px-4 py-3 text-sm leading-tight tracking-[2px] uppercase transition-[background-color] hover:underline"
+                className="block px-4 py-3 text-sm leading-tight tracking-[2px] uppercase transition-[background-color] hover:underline md:p-0"
                 to={l.href}
               >
                 {l.label}

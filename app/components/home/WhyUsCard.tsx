@@ -27,7 +27,9 @@ export default function WhyUsCard(props: Props) {
       </figure>
 
       <figcaption className="col-span-full sm:max-lg:col-span-4 lg:text-center">
-        <h2 className="heading-3 uppercase">{props.heading}</h2>
+        <h2 className="heading-3 tracking-0 mb-8 font-medium uppercase">
+          {props.heading}
+        </h2>
         <p>{props.text}</p>
         {props?.children}
       </figcaption>

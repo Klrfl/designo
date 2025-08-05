@@ -21,9 +21,9 @@ export default function LocationList() {
   }, []);
 
   return (
-    <div className="col-[full] grid grid-cols-subgrid gap-8 pb-40 sm:col-[main]">
+    <div className="col-[full] grid grid-cols-subgrid gap-8 sm:col-[main]">
       {locations.map((l) => (
-        <LocationSection {...l} />
+        <LocationSection key={l.name} {...l} />
       ))}
     </div>
   );
