@@ -1,11 +1,44 @@
+import { useForm } from "react-hook-form";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import CircleBg from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
+import IconError from "~/assets/contact/desktop/icon-error.svg";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import type { PropsWithChildren } from "react";
 
 interface Props {
   text: TinaMarkdownContent;
 }
 
+function ErrorMessage({ children }: PropsWithChildren) {
+  return (
+    <p className="max-h-content absolute inset-0 left-auto hidden items-center gap-2 py-3 pr-4 text-sm italic peer-invalid:flex">
+      {children}
+      <img src={IconError} width="20" alt="" />
+    </p>
+  );
+}
+
 export default function ContactForm({ text }: Props) {
+  const schema = z.object({
+    name: z.string("what the fuck").nonempty("can't be empty"),
+    email: z.email("can't be empty"),
+    phone: z.number("phone not valid!").positive("can't be empty"),
+    message: z.string().nonempty("can't be empty"),
+  });
+
+  const { register, handleSubmit, formState } = useForm({
+    resolver: zodResolver(schema),
+    shouldUseNativeValidation: true,
+  });
+
+  /**
+   * TODO: put into a database or something
+   * */
+  const onSubmit = (e: z.infer<typeof schema>) => {
+    console.log(e);
+  };
+
   return (
     <section className="bg-primary relative mb-30 grid gap-10 overflow-hidden rounded-2xl px-15 py-12 text-white lg:mb-40 lg:grid-cols-12 lg:px-24">
       <img
@@ -18,7 +51,7 @@ export default function ContactForm({ text }: Props) {
         <TinaMarkdown
           content={text}
           components={{
-            h1: (props?: object) => (
+            h1: (props?: PropsWithChildren) => (
               <h1 className="heading-1 mb-8">{props?.children}</h1>
             ),
           }}
@@ -27,58 +60,66 @@ export default function ContactForm({ text }: Props) {
 
       {/** TODO: add validation and some type of feedback */}
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(e);
-        }}
+        onSubmit={handleSubmit(onSubmit)}
         className="col-span-full col-end-[-1] flex flex-col gap-6 lg:col-span-5 lg:col-start-8"
       >
-        <label className="sr-only" htmlFor="name">
-          Name
-        </label>
-        <input
-          className="input"
-          placeholder="Name"
-          type="text"
-          name="name"
-          id="name"
-          required
-        />
+        <label className="relative" htmlFor="name">
+          <span className="sr-only">Name</span>
 
-        <label className="sr-only" htmlFor="email">
-          EMail
+          <input
+            {...register("name")}
+            className="input peer"
+            placeholder="Name"
+            type="text"
+            name="name"
+            id="name"
+          />
+          <ErrorMessage>{formState.errors.name?.message}</ErrorMessage>
         </label>
-        <input
-          className="input"
-          placeholder="Email Address"
-          type="email"
-          name="email"
-          id="email"
-          required
-        />
 
-        <label className="sr-only" htmlFor="phone">
-          Phone
-        </label>
-        <input
-          className="input"
-          placeholder="Phone"
-          type="number"
-          name="phone"
-          id="phone"
-          required
-        />
+        <label className="relative" htmlFor="email">
+          <span className="sr-only">Email</span>
 
-        <label className="sr-only" htmlFor="message">
-          Message
+          <input
+            {...register("email")}
+            className="input text peer"
+            placeholder="Email Address"
+            type="email"
+            name="email"
+            id="email"
+          />
+
+          <ErrorMessage>{formState.errors.email?.message}</ErrorMessage>
         </label>
-        <textarea
-          className="input min-h-28 resize-y"
-          cols={40}
-          placeholder="Your Message"
-          name="message"
-          id="message"
-        ></textarea>
+
+        <label className="relative" htmlFor="phone">
+          <span className="sr-only">Phone</span>
+          <input
+            {...register("phone")}
+            className="input peer"
+            style={{ MozAppearance: "textfield" }}
+            placeholder="Phone"
+            type="number"
+            name="phone"
+            id="phone"
+          />
+          <ErrorMessage>{formState.errors.phone?.message}</ErrorMessage>
+        </label>
+
+        <label className="relative" htmlFor="message">
+          <span className="sr-only">Message</span>
+
+          <textarea
+            {...register("message")}
+            className="input peer min-h-28 resize-y"
+            cols={40}
+            placeholder="Your Message"
+            name="message"
+            id="message"
+          ></textarea>
+
+          <ErrorMessage>{formState.errors.message?.message}</ErrorMessage>
+        </label>
 
         <button className="btn self-end">Submit</button>
       </form>
