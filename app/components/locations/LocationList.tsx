@@ -1,7 +1,7 @@
 import client from "$/tina/__generated__/client";
-import { useEffect, useState } from "react";
-import LocationSection from "./LocationSection";
 import type { Location } from "$/tina/__generated__/types";
+import LocationSection from "./LocationSection";
+import { useEffect, useState } from "react";
 
 export default function LocationList() {
   let [locations, setLocations] = useState<Location[]>([]);

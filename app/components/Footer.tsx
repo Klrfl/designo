@@ -1,8 +1,8 @@
-import DesignoLight from "~/assets/shared/desktop/logo-light.png";
-import SVGCircles from "~/assets/shared/desktop/bg-pattern-call-to-action.svg";
-import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
-import type { OfficeLocation } from "~/types";
 import { Link } from "react-router";
+import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
+import SVGCircles from "~/assets/shared/desktop/bg-pattern-call-to-action.svg";
+import DesignoLight from "~/assets/shared/desktop/logo-light.png";
+import type { OfficeLocation } from "~/types";
 
 interface Props {
   displayCta?: boolean;

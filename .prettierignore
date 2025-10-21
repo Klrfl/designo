@@ -1,6 +1,9 @@
 tina/__generated__/**/*
 tina/tina-lock.json
 content/**/*
+public/*
 
 pnpm-lock.yaml
+pnpm-workspace.yaml
+.wrangler
 package.json

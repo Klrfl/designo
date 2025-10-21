@@ -1,8 +1,8 @@
-import client from "$/tina/__generated__/client";
-import LocationCard from "~/components/shared/LocationCard";
-import { useEffect, useState } from "react";
-import { slugify } from "$/app/utils";
 import type { OfficeLocation } from "$/app/types";
+import { slugify } from "$/app/utils";
+import client from "$/tina/__generated__/client";
+import { useEffect, useState } from "react";
+import LocationCard from "~/components/shared/LocationCard";
 
 export default function LocationLinks() {
   const [locations, setLocations] = useState<OfficeLocation[]>([]);

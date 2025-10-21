@@ -1,18 +1,17 @@
 import client from "$/tina/__generated__/client";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Route } from "./+types/$slug";
-import AboutSection from "~/components/about/AboutSection";
 import { data } from "react-router";
 import { useTina } from "tinacms/dist/react";
-
-import LocationLinks from "~/components/locations/LocationLinks";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import AboutSection from "~/components/about/AboutSection";
 import ContactForm from "~/components/contact/ContactForm";
-import { richTextComponents } from "~/components/shared/RichTextComponents";
+import ServiceCardList from "~/components/home/ServiceCardList";
 import WhyUsCard from "~/components/home/WhyUsCard";
+import LocationLinks from "~/components/locations/LocationLinks";
+import LocationList from "~/components/locations/LocationList";
 import Column from "~/components/shared/Column";
 import HeroHeader from "~/components/shared/HeroHeader";
-import LocationList from "~/components/locations/LocationList";
-import ServiceCardList from "~/components/home/ServiceCardList";
+import { richTextComponents } from "~/components/shared/RichTextComponents";
 
 export async function loader({ params }: Route.LoaderArgs) {
   let result;

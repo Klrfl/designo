@@ -1,7 +1,7 @@
+import { richTextComponents } from "./RichTextComponents";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import HeaderBg from "~/assets/home/desktop/bg-pattern-hero-home.svg";
 import Phone from "~/assets/home/desktop/phone.png";
-import { richTextComponents } from "./RichTextComponents";
 
 interface Props {
   content: TinaMarkdownContent;

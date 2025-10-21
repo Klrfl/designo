@@ -1,3 +1,10 @@
+import client from "$/tina/__generated__/client";
+import type { Route } from "./+types/root";
+import "./app.css";
+import Footer from "./components/Footer";
+import NavigationBar from "./components/NavigationBar";
+import type { OfficeLocation } from "./types";
+import "@fontsource-variable/jost";
 import {
   data,
   isRouteErrorResponse,
@@ -9,15 +16,7 @@ import {
   ScrollRestoration,
   useLocation,
 } from "react-router";
-
-import type { Route } from "./+types/root";
-import "./app.css";
-import "@fontsource-variable/jost";
-import NavigationBar from "./components/NavigationBar";
-import Footer from "./components/Footer";
-import client from "$/tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
-import type { OfficeLocation } from "./types";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

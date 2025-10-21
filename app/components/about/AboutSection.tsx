@@ -1,6 +1,6 @@
-import BgPattern from "~/assets/about/desktop/bg-pattern-hero-about-desktop.svg";
-import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 import type { PropsWithChildren } from "react";
+import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
+import BgPattern from "~/assets/about/desktop/bg-pattern-hero-about-desktop.svg";
 
 interface Props {
   title: string;

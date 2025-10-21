@@ -1,6 +1,6 @@
 import { slugify } from "$/app/utils";
-import TwoCircle from "~/assets/shared/desktop/bg-pattern-two-circles.svg";
 import CanadaMap from "~/assets/locations/desktop/image-map-canada.png";
+import TwoCircle from "~/assets/shared/desktop/bg-pattern-two-circles.svg";
 
 interface Props {
   image?: string;

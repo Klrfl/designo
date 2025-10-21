@@ -1,8 +1,8 @@
-import { defineConfig } from "tinacms";
-import { serviceCollection } from "./collections/services";
-import { pageCollection } from "./collections/pages";
-import { locationCollection } from "./collections/locations";
 import { configCollection } from "./collections/config";
+import { locationCollection } from "./collections/locations";
+import { pageCollection } from "./collections/pages";
+import { serviceCollection } from "./collections/services";
+import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =

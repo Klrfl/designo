@@ -1,5 +1,5 @@
-import { slugify } from "~/utils";
 import type { Collection } from "tinacms";
+import { slugify } from "~/utils";
 
 export const serviceCollection: Collection = {
   name: "service",

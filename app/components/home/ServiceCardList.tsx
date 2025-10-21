@@ -1,7 +1,7 @@
 import client from "$/tina/__generated__/client";
-import { useState, useEffect } from "react";
-import ServiceCard from "./ServiceCard";
 import type { Service } from "$/tina/__generated__/types";
+import ServiceCard from "./ServiceCard";
+import { useState, useEffect } from "react";
 
 export default function ServiceCardList() {
   let [services, setServices] = useState<Service[]>([]);

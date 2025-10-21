@@ -1,12 +1,12 @@
 import client from "$/tina/__generated__/client";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { data } from "react-router";
 import ServiceCard from "../components/home/ServiceCard";
-import { richTextComponents } from "~/components/shared/RichTextComponents";
 import type { Route } from "./+types/services.$service";
+import { data } from "react-router";
 import { useTina } from "tinacms/dist/react";
-import ProjectCard from "~/components/services/ProjectCard";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 import BgPattern from "~/assets/web-design/desktop/bg-pattern-intro-web.svg";
+import ProjectCard from "~/components/services/ProjectCard";
+import { richTextComponents } from "~/components/shared/RichTextComponents";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {

@@ -3,6 +3,7 @@
 This repo contains the source code of my solution of Designo, a Guru frontendmentor.io challenge.
 
 ## Tech
+
 - TinaCMS: Git-based content management in portable MDX and live editing
 - React Router: powerful SSR-ready React framework
 - Tailwind: for rapid prototyping

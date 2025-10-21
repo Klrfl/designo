@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
-import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
-import CircleBg from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
-import IconError from "~/assets/contact/desktop/icon-error.svg";
-import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { PropsWithChildren } from "react";
+import { useForm } from "react-hook-form";
+import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
+import z from "zod";
+import IconError from "~/assets/contact/desktop/icon-error.svg";
+import CircleBg from "~/assets/shared/desktop/bg-pattern-small-circle.svg";
 
 interface Props {
   text: TinaMarkdownContent;

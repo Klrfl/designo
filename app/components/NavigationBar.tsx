@@ -1,7 +1,7 @@
-import Logo from "~/assets/shared/desktop/logo-dark.png";
-import Burger from "~/assets/shared/mobile/icon-hamburger.svg";
-import Close from "~/assets/shared/mobile/icon-close.svg";
 import { Link } from "react-router";
+import Logo from "~/assets/shared/desktop/logo-dark.png";
+import Close from "~/assets/shared/mobile/icon-close.svg";
+import Burger from "~/assets/shared/mobile/icon-hamburger.svg";
 
 interface Props {
   links: {
